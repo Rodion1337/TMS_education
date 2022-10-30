@@ -1,0 +1,31 @@
+l2.txt
+test
+итого 8
+drwxrwxr-x 2 user user 4096 кас 30 19:39 .
+drwxrwxr-x 3 user user 4096 кас 30 19:39 ..
+-rw-rw-r-- 1 user user    0 кас 30 19:39 main.py
+/home/user/l2/test/test_1
+    1  clear
+    2  mkdir test
+    3  ls >l2.txt
+    4  ls
+    5  cd test
+    6  mkdir test_1
+    7  cd test_1
+    8  ls
+    9  toucj main.py
+   10  touch main.py
+   11  ls -al >>ls/l2.txt
+   12  ls -al >>~/ls/l2.txt
+   13  ls -al >>~/l2/l2.txt
+   14  ls -al
+   15  pwd >>~/l2/l2.txt
+   16  cp main.py~/l2
+   17  cp main.py ~/l2
+   18  cd ~/l2
+   19  ls
+   20  rm -r /test
+   21  ls
+   22  rm -r ~/l2/test
+   23  ls
+   24  history >>~/l2/l2.txt

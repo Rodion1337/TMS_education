@@ -1,0 +1,24 @@
+    1  python3 -m venv .venv
+    2  source .venv/bin/activate
+    3  touch main.py
+    4  nano main.py
+    5  python3 main.py
+    6  nano main.py
+    7  python3 main.py
+    8  deactivate
+    9  ls -al
+   10  cd .venv
+   11  ls
+   12  cd bin
+   13  ls
+   14  ls -al
+   15  cd ~
+   16  ls -al
+   17  cd l2
+   18  ls -al
+   19  cat main.py
+   20  cd l2_part3
+   21  ls -al
+   22  cat main.py
+   23  history
+   24  history>l2_part3.txt

@@ -1,0 +1,27 @@
+Python 3.8.10
+    1  venv
+    2  env
+    3  mkdir l2_part2
+    4  cd l2_part2
+    5  virtualenv
+    6  sudo apt install python3-virtualenv
+    7  virtualenv
+    8  virtualenv -p
+    9  venv
+   10  python3 --version
+   11  python3 --version>l2_p2.txt
+   12  python3 -m venv .venv
+   13  apt install python3.8-venv
+   14  sudo apt install python3.8-venv
+   15  python3 -m venv .venv
+   16  source .venv/bin/activate
+   17  pip --version
+   18  pip install requests==2.26.0
+   19  pip install lxml
+   20  pip dreeze>requirements.txt
+   21  pip freeze>requirements.txt
+   22  cat requirements.txt
+   23  deactive
+   24  deactivate
+   25  ls
+   26  history>>l2_p2.txt
