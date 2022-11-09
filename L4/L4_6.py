@@ -1,0 +1,6 @@
+text = input('Введите строку: ')
+text = text.capitalize()
+text = text.split(' ')
+text1 = str(text[-1:-1])
+text.insert(text1.capitalize(), (len(text) - 1))
+print(' '.join(text))
