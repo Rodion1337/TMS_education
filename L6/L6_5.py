@@ -1,7 +1,7 @@
 def combine_dicts(*args):
     print(args,type(args))
     print(args[0],args[1], len(args))
-
+    print(list(args[0].keys()) + list(args[1].keys()), len(args))
 
 
 dict_1 = {'a': 100, 'b': 200}
