@@ -4,11 +4,13 @@ def split(text, sep):
     if sep in text:
         for i in range(0, len(text)):
             if sep == text[i]:
-                text_list.append(text[((x + 1) if text[x] == sep else x):(i)])
-                x = i
+                text_list.append(text[x:i])
+                x = i + 1
             else:
                 continue
-        text_list.append(text[(x+1):len(text)])
+        text_list.append(text[x:len(text)])
+    else:
+        text_list = [text]
     return text_list
 
 
