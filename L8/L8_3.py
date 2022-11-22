@@ -7,3 +7,6 @@ Adrian
 Wiley
 ________
 """
+
+names = open('unsorted_names.txt', 'r')
+print(names)
