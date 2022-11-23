@@ -13,4 +13,13 @@
 """
 names = 'Tim,John,Sally,Trevor,Harry'.split(',')
 ages = '12,34,24,57,18'.split(',')
+name_age_list = list((name, age) for name,age in zip(names,ages))
+#print(name_age_list)
 import json
+name_age_dict_id = {(100000 + id) : {'name':name_age_list[id][0], 'age':int(name_age_list[id][1]) } for id in range(len(name_age_list))}
+#print(name_age_dict_id)
+name_age_json = json.dumps(name_age_dict_id)
+#print(name_age_json)
+file = open('l8\\id_name_age_json.json', 'w')
+file.write(name_age_json)
+file.close()
