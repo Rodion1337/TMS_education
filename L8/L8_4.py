@@ -11,3 +11,6 @@
 }
 Сохранить итоговый словарь в виде json файла
 """
+names = 'Tim,John,Sally,Trevor,Harry'.split(',')
+ages = '12,34,24,57,18'.split(',')
+import json
