@@ -8,9 +8,9 @@ Wiley
 ________
 """
 
-names = open('unsorted_names.txt', 'r')          #открытие файла на чтение
+names = open(r'l8\unsorted_names.txt', 'r')          #открытие файла на чтение
 name_list = sorted(names.readlines())            #построчное прочтение содержимого + сортировка
 
-name_list_sorted = open('sorted_names.txt', 'w')
-name_list_sorted.write(''.join(name_list))
+name_list_sorted = open(r'l8\sorted_names.txt', 'w', encoding="utf-8") #создание файла для записи данных
+name_list_sorted.write(''.join(name_list))       #запись данных
 
