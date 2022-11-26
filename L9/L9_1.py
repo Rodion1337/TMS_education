@@ -1,3 +1,3 @@
 print('hello world')
-123124
-asdasf
+print('123124')
+print('asdasf')
