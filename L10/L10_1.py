@@ -9,7 +9,7 @@ class Auto():
     color = 'green'
     weight = 2100
 
-    def __init__(self, brand:str, age:int, mark:str) -> None:
+    def __init__(self, brand:str, age:int, mark:str):
         self.brand = brand
         self.age = age
         self.mark = mark
@@ -24,12 +24,12 @@ class Auto():
         print(f"Car {self.brand} {self.mark} stops")
 
 
-bmw = Auto('BMW', 2010, 'E46')
-print(bmw.brand, bmw.mark, bmw.age, bmw.color, bmw.weight)
-bmw.use()
-bmw.drive()
-bmw.stop()
-print(bmw.age)
+# bmw = Auto('BMW', 2010, 'E46')
+# print(bmw.brand, bmw.mark, bmw.age, bmw.color, bmw.weight)
+# bmw.use()
+# bmw.drive()
+# bmw.stop()
+# print(bmw.age)
 
-audi = Auto('Audi', 2019, 'Q7')
-print(audi.brand, audi.mark, audi.age, audi.color, audi.weight)
+# audi = Auto('Audi', 2019, 'Q7')
+# print(audi.brand, audi.mark, audi.age, audi.color, audi.weight)
