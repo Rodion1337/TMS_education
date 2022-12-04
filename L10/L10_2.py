@@ -9,6 +9,7 @@
 """
 
 from L10_1 import Auto
+import time
 
 class Truck(Auto):
     max_load = 150
@@ -21,8 +22,29 @@ class Truck(Auto):
         print ('Attention!')
         return super().drive()
 
-# class Sedan(Auto):
-#     ....
+class Sedan(Auto):
+    max_speed = 60
+    
+    def __init__(self, brand: str, age: int, mark: str, max_speed:int):
+        super().__init__(brand, age, mark)
+        self.max_speed = max_speed
+
+    def drive(self):
+        super().drive()
+        print(f'max speed of sedan {self.brand} {self.mark} is {self.max_speed}')
+
+    def load(self):
+        time.sleep(1)
+        print('Load')
+        time.sleep(1)
+
 
 daf = Truck('DAF', 2013, 'af103', 150)
 daf.drive()
+daf.max_load = 90
+print(daf.max_load)
+
+ford = Sedan('Ford', 2021, 'Focus', 120)
+ford.drive()
+ford.load()
+print('time out 1 sec')
