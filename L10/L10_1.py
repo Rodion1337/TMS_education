@@ -27,6 +27,8 @@ class Auto():
 bmw = Auto('BMW', 2010, 'E46')
 print(bmw.brand, bmw.mark, bmw.age, bmw.color, bmw.weight)
 bmw.use()
+bmw.drive()
+bmw.stop()
 print(bmw.age)
 
 audi = Auto('Audi', 2019, 'Q7')
