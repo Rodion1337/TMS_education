@@ -13,13 +13,14 @@ class Counter():
         self.stop = stop
 
     def increment(self):
-        self.start += 1
-        if self.start >= self.stop:
-            self.start = self.stop
+        if self.start < self.stop:
+            self.start += 1 
+        else:
             return print("Maximal value is reached")
-
+        # return(self.start = elf.start + 1 if self.start != self.stop else print("Maximal value is reached"))
+    
     def get(self):
-        print(self.start)
+        return print(self.start)
 
 
 c = Counter(start=42)
