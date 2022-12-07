@@ -17,7 +17,12 @@ class Counter():
         if self.start >= self.stop:
             self.start = self.stop
             return print("Maximal value is reached")
+<<<<<<< HEAD
 
+=======
+        # return(self.start = elf.start + 1 if self.start != self.stop else print("Maximal value is reached"))
+    
+>>>>>>> parent of bb06b8c (increment update 2)
     def get(self):
         print(self.start)
 
