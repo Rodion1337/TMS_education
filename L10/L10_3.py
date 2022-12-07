@@ -20,7 +20,7 @@ class Counter():
         # return self.start += 1 if self.start < self.stop else print("Maximal value is reached")
     
     def get(self):
-        return print(self.start)
+        return self.start
 
 
 c = Counter(start=42)
