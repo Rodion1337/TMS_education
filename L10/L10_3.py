@@ -17,7 +17,7 @@ class Counter():
             self.start += 1 
         else:
             return print("Maximal value is reached")
-        # return(self.start = elf.start + 1 if self.start != self.stop else print("Maximal value is reached"))
+        # return self.start += 1 if self.start < self.stop else print("Maximal value is reached")
     
     def get(self):
         return print(self.start)
