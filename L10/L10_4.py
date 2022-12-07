@@ -7,6 +7,7 @@
 
 
 class Crypto():
+    
     s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     z = "CRYPTOABDEFGHIJKLMNQSUVWXZ"
     s += s.lower()
