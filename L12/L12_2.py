@@ -14,6 +14,24 @@ validator.validate(user, Some!Password, mail@mail.com)
 #  ValidationError
 """
 
+class InvalidLogin(Exception):
+    pass
+
+class InvalidPassword(Exception):
+    pass
+
+class InvalidEmail(Exception):
+    pass
+
+
 class Validator():
-    def __init__(self, args -> None:
-        pass
+    def __init__(self, , login: str, password: str, email: str):
+        self.login = login
+        self.password = password
+        self.email = email
+
+    def validate_login():
+        if len(self.login) < 6:
+            raise InvalidLogin('Длина логина менее 6 знаков!')
+        else:
+            return True
