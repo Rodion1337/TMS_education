@@ -7,27 +7,38 @@
 обозначающее сумму, которую осталось оплатить (с учетом стоимости заказа и внесенных с помощью метода «оплатить» денег)
 """
 
+from dataclasses import dataclass
+
+
+@dataclass
 class Dish():
-    def __init__(self, name : str, price : int, weight : int):
-        self.name = name
-        self.price = price
-        self.weight = weight
+    name : str
+    price : int
+    weight : int
 
 dish_1 = Dish('Цезарь', 15, 150)
-# dish_2 = Dish('Пюре', 5, 100)
-# dish_3 = Dish('Котлета', 8, 70)
-# dish_4 = Dish('Картофель фри', 5, 100)
-print(type(dish_1))
+dish_2 = Dish('Пюре', 5, 100)
+dish_3 = Dish('Котлета', 8, 70)
+dish_4 = Dish('Картофель фри', 5, 100)
+print(dish_1)
+print(dish_2)
+
+
+
 
 class Order():
-    dish_order = []
-    # def __init__(self, dish_order):
-    #     self.dish_order = dish_order
+    x = []
+    def __init__(self, dish_order):
+        self.dish_order = dish_order
 
-    def order_list(self):
-        dish_order.append(dict(dish_order))
+    def order_list(x):
+        dish_order = []
+        dish_order.append(dict(x))
         return dish_order
-        
-order_1 = Order.order_list(dish_1)
 
-print(order_1)
+    def summ_order(self,*args):
+        for i in args:
+            x.append(i)
+        print x
+
+Order(dish_1, dish_2)
