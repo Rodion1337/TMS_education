@@ -12,6 +12,9 @@ from dataclasses import dataclass
 
 @dataclass
 class Dish():
+    """
+    Создание блюд
+    """
     name : str
     price : int
     weight : int
@@ -20,27 +23,25 @@ dish_1 = Dish('Цезарь', 15, 150)
 dish_2 = Dish('Пюре', 5, 100)
 dish_3 = Dish('Котлета', 8, 70)
 dish_4 = Dish('Картофель фри', 5, 100)
-print(dish_1)
-print(dish_2)
-
 
 
 
 class Order():
-    x = []
-    def __init__(self, dish_order):
-        self.dish_order = dish_order
+    
+    def __init__(self, name, price, weight):
+        self.name = name
+        self.price = price
+        self.weight = weight
 
-    def order_list(x):
-        dish_order = []
-        dish_order.append(dict(x))
-        return dish_order
-
-    def summ_order(self,*args):
+    def to_pay(*args): #подсчет суммы к оплате
+        to_pay_order = 0
         for i in args:
-            x.append(i)
-        print x
+            to_pay_order = to_pay_order + i.price
+        return to_pay_order
 
-Order(dish_1, dish_2)
+summ_to_pay = Order.to_pay(dish_1, dish_2)
+print(summ_to_pay)
 
-lol
+class client():
+    def __init__(self, name):
+        self.name = name
