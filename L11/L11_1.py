@@ -23,12 +23,6 @@ dish_1 = Dish('Цезарь', 15, 150)
 dish_2 = Dish('Пюре', 5, 100)
 dish_3 = Dish('Котлета', 8, 70)
 dish_4 = Dish('Картофель фри', 5, 100)
-menu = []
-menu.append(dish_1)
-menu.append(dish_2)
-menu.append(dish_3)
-menu.append(dish_4)
-print(menu)
 
 
 class Order():
@@ -37,27 +31,20 @@ class Order():
         self.price = price
         self.weight = weight
 
-    def to_pay(*args) -> int:
+    def to_pay(x) -> int:
         """подсчет суммы к оплате"""
         to_pay_order = 0
-        for i in args:
+        for i in x:
             to_pay_order = to_pay_order + i.price
         return to_pay_order
 
-    def balance() -> int:
-        you_pay = input(f'Сумма вашего заказа {Order.to_pay}')
-        pay = Order.to_pay - you_pay
+    def balance(x) -> int:
+        """подсчет остатка к оплате"""
+        you_pay = input(f'Сумма вашего заказа {Order.to_pay(x)}. Прошу внести денежные средства: ')
+        pay = Order.to_pay(x) - int(you_pay)
+        return pay
 
-class Client():
-    def __init__(self):
-        self.name = input('добрый день.\nкак вас зовут?')
 
-    def my_order():
-        
-        x = input(f'будете что-то заказывать? (Y / N)').upper()
-        if x = 'Y':
-            my_dish = input(f'на выбор есть Dish_1: {dish_1.name_dish}, ценна:{dish_1.price}, вес блюда {dish_1.weight}. Будете заказывать? (Y / N)')
-                if my
-
-start = Client()
-
+my_order = (dish_1, dish_2)
+print(f'Вы заказали: {my_order[0].name_dish} и {my_order[1].name_dish}')
+print(f'Остаток к оплате: {Order.balance(my_order)}')
