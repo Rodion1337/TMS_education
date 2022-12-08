@@ -42,3 +42,5 @@ class Order():
         print x
 
 Order(dish_1, dish_2)
+
+lol
