@@ -4,7 +4,10 @@
 login — не менее 6 символов
 password — не менее 8 символов, буквы в верхнем и нижнем регистре, не менее одного специального символа (+-/*! и т.д)
 email — присутствует символ @, оканчивается . и 2 символами (.by)
-Валидация каждого элемента в кортеже производится отдельным методом для каждого элемента (validate_email, validate_login, validate_password) в которых в случае непрохождения валидации вызывается ошибка (InvalidPassword, InvalidLogin, InvalidEmail), при соответствии — возвращается значение True. В методе validate необходимо предусмотреть обработку этих ошибок и в случае их наличия — вызвать ошибку ValidationError.
+Валидация каждого элемента в кортеже производится отдельным методом для каждого элемента (validate_email, validate_login, 
+validate_password) в которых в случае непрохождения валидации вызывается ошибка (InvalidPassword, InvalidLogin, InvalidEmail), 
+при соответствии — возвращается значение True. В методе validate необходимо предусмотреть обработку этих ошибок и в случае их 
+наличия — вызвать ошибку ValidationError.
 Ошибки создать самостоятельно
 например
 validator = Validator()
@@ -25,13 +28,35 @@ class InvalidEmail(Exception):
 
 
 class Validator():
-    def __init__(self, , login: str, password: str, email: str):
+
+    def __init__(self, login: str, password: str, email: str):
         self.login = login
         self.password = password
         self.email = email
 
+
     def validate_login():
+        """не менее 6 символов"""
         if len(self.login) < 6:
             raise InvalidLogin('Длина логина менее 6 знаков!')
         else:
             return True
+
+
+    def validate_password:
+        from string import ascii_letters
+        x = ascii_letters
+        print (x)
+        """не менее 8 символов, буквы в верхнем и нижнем регистре, не менее одного специального символа (+-/*! и т.д)"""
+        if len(self.password) < 8:
+                raise InvalidPassword ('Длина пароля менее 8 знаков')
+        else:
+            print('exit')
+
+
+    def validate_email():
+        pass
+
+pass_valid = Validator()
+x = pass_valid()
+print(pass_valid.validate_login)
