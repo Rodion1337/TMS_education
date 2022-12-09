@@ -43,7 +43,7 @@ class Validator():
             return True
 
 
-    def validate_password:
+    def validate_password():
         from string import ascii_letters
         x = ascii_letters
         print (x)
