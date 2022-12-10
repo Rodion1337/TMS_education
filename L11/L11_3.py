@@ -22,20 +22,22 @@ class Deque:
     deque_list = []
 
     @classmethod
-    def append_left(self, data):
-        return self.deque_list.insert(0, data) if len(self.deque_list) < 5 else print('очередь переполнена')
+    def append_left(self, data: Any):
+        self.deque_list.insert(0, data) if len(self.deque_list) < 5 else print('Очередь переполнена')
+        return self.deque_list
 
     @classmethod
-    def append_right(self, data):
-        return self.deque_list.append(data) if len(self.deque_list) < 5 else print('очередь переполнена')
+    def append_right(self, data: Any):
+        self.deque_list.append(data) if len(self.deque_list) < 5 else print('Очередь переполнена')
+        return self.deque_list
 
     @classmethod
-    def pop_left():
-        pass
+    def pop_left(self):
+        return self.deque_list.pop(0), self.deque_list
 
     @classmethod
-    def pop_right():
-        pass
+    def pop_right(self):
+        return self.deque_list.pop(-1), self.deque_list
 
 """тестовая часть"""
 data_1 = DataObject(69)
@@ -47,17 +49,30 @@ data_6 = DataObject(1231245235)
 
 print(f'data 1: {data_1}, data_2: {data_2}, data_3: {data_3}, data_4: {data_4}, data 5: {data_5}, data_6: {data_6}')
 
-result = Deque
-result.append_right(data_1)
-print(result.deque_list)
-result.append_left(data_2)
-print(result.deque_list)
-result.append_right(data_3)
-print(result.deque_list)
-result.append_left(data_4)
-print(result.deque_list)
-result.append_left(data_5)
-print(result.deque_list)
-result.append_left(data_6)
-print(result.deque_list)
+# result = Deque
+# result.append_right(data_1)
+# print(list(result.deque_list))
+# result.append_left(data_2)
+# print(result.deque_list)
+# result.append_right(data_3)
+# print(result.deque_list)
+# result.append_left(data_4)
+# print(result.deque_list)
+# result.append_left(data_5)
+# print(result.deque_list)
+# result.append_left(data_6)
+# print(result.deque_list)
+
+
+print(Deque.append_right(data_1))
+print(Deque.append_left(data_2))
+print(Deque.append_right(data_3))
+print(Deque.append_left(data_4))
+print(Deque.append_left(data_5))
+print(Deque.append_left(data_6))
+print(Deque.pop_left())
+print(Deque.pop_left())
+print(Deque.pop_left())
+print(f'принт элемента №2 {Deque.deque_list[1]}')
+
 #L11_3 update
