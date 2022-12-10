@@ -19,15 +19,6 @@ class DataObject:
     data : Any
 
 
-data_1 = DataObject(69)
-data_2 = DataObject("abc")
-data_3 = DataObject("abcasd")
-data_4 = DataObject("qwerty")
-data_5 = DataObject('zxcvb123')
-data_6 = DataObject(1231245235)
-
-print(*f'data 1: {data_1}, data_2: {data_2}, data_3: {data_3}, data_4: {data_4}, data 5: {data_5}, data_6: {data_6}')
-
 class Deque:
     deque_list = []
 
@@ -49,6 +40,15 @@ class Deque:
     def pop_right():
         pass
 
+"""тестовая часть"""
+data_1 = DataObject(69)
+data_2 = DataObject("abc")
+data_3 = DataObject("abcasd")
+data_4 = DataObject("qwerty")
+data_5 = DataObject('zxcvb123')
+data_6 = DataObject(1231245235)
+
+print(f'data 1: {data_1}, data_2: {data_2}, data_3: {data_3}, data_4: {data_4}, data 5: {data_5}, data_6: {data_6}')
 
 result = Deque
 result.append_right(data_1)
