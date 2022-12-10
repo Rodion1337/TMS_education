@@ -18,19 +18,16 @@ from typing import Any
 class DataObject:
     data : Any
 
-
 class Deque:
     deque_list = []
 
     @classmethod
     def append_left(self, data):
-        return self.deque_list.insert(0, data) if len(self.deque_list) < 5 else ('очередь переполнена')
-
+        return self.deque_list.insert(0, data) if len(self.deque_list) < 5 else print('очередь переполнена')
 
     @classmethod
     def append_right(self, data):
-        return self.deque_list.append(data) if len(self.deque_list) < 5 else ('очередь переполнена')
-
+        return self.deque_list.append(data) if len(self.deque_list) < 5 else print('очередь переполнена')
 
     @classmethod
     def pop_left():
