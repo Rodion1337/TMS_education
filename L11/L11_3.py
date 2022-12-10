@@ -23,56 +23,55 @@ class Deque:
 
     @classmethod
     def append_left(self, data: Any):
-        self.deque_list.insert(0, data) if len(self.deque_list) < 5 else print('Очередь переполнена')
-        return self.deque_list
+        """Добавление элемента в начало списка"""
+        if isinstance(data, DataObject):
+            self.deque_list.insert(0, data.data) if len(self.deque_list) < 5 else print('Очередь переполнена')
+            return self.deque_list
+        else:
+            return(f'Переданный: {data}, не является наследником DataObject')
 
     @classmethod
     def append_right(self, data: Any):
-        self.deque_list.append(data) if len(self.deque_list) < 5 else print('Очередь переполнена')
-        return self.deque_list
+        """Добавление элемента в конец списка"""
+        if isinstance(data, DataObject):
+            self.deque_list.append(data.data) if len(self.deque_list) < 5 else print('Очередь переполнена')
+            return self.deque_list
+        else:
+            return(f'Переданный: {data}, не является наследником DataObject')
 
     @classmethod
     def pop_left(self):
+        """Удаление элемента в начале списка"""
         return self.deque_list.pop(0), self.deque_list
 
     @classmethod
     def pop_right(self):
+        """Удаление элемента в конце списка"""
         return self.deque_list.pop(-1), self.deque_list
 
+
+
+
 """тестовая часть"""
-data_1 = DataObject(69)
-data_2 = DataObject("abc")
-data_3 = DataObject("abcasd")
-data_4 = DataObject("qwerty")
-data_5 = DataObject('zxcvb123')
-data_6 = DataObject(1231245235)
-
-print(f'data 1: {data_1}, data_2: {data_2}, data_3: {data_3}, data_4: {data_4}, data 5: {data_5}, data_6: {data_6}')
-
-# result = Deque
-# result.append_right(data_1)
-# print(list(result.deque_list))
-# result.append_left(data_2)
-# print(result.deque_list)
-# result.append_right(data_3)
-# print(result.deque_list)
-# result.append_left(data_4)
-# print(result.deque_list)
-# result.append_left(data_5)
-# print(result.deque_list)
-# result.append_left(data_6)
-# print(result.deque_list)
+data_1 = DataObject(1)
+data_2 = DataObject("2")
+data_3 = DataObject("3")
+data_4 = DataObject("4")
+data_5 = DataObject('5')
+data_6 = DataObject(6)
 
 
-print(Deque.append_right(data_1))
-print(Deque.append_left(data_2))
-print(Deque.append_right(data_3))
-print(Deque.append_left(data_4))
-print(Deque.append_left(data_5))
-print(Deque.append_left(data_6))
-print(Deque.pop_left())
-print(Deque.pop_left())
-print(Deque.pop_left())
+result = Deque
+print(result.append_right(data_1))
+print(result.append_left(data_2))
+print(result.append_right(data_3))
+print(result.append_left(data_4))
+print(result.append_left(data_5))
+print(result.append_left(data_6))
+print(result.pop_left())
+print(result.pop_left())
+print(result.pop_left())
 print(f'принт элемента №2 {Deque.deque_list[1]}')
-
+print(result.append_left("test approved"))
+print(Deque.deque_list)
 #L11_3 update
