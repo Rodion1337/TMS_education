@@ -28,6 +28,7 @@ class InvalidEmail(Exception):
 
 
 class Validator():
+    from string import ascii_lowercase, ascii_uppercase, punctuation
 
     def __init__(self, login: str, password: str, email: str):
         self.login = login
@@ -44,10 +45,9 @@ class Validator():
 
 
     def validate_password(self) -> bool:
-        from string import ascii_lowercase, ascii_uppercase, punctuation
         """password — не менее 8 символов, буквы в верхнем и нижнем регистре, не менее одного специального символа (+-/*! и т.д)"""
-        if len(self.password) >= 8 and len(set(self.password) & set(ascii_lowercase)) > 1 and len(set(self.password) & set(ascii_uppercase)) > 1 and len(
-            set(self.password) & set(punctuation)) > 1:
+        if len(self.password) >= 8 and len(set(self.password) & set(self.ascii_lowercase)) > 1 and len(set(self.password) & set(self.ascii_uppercase)) > 1 and len(
+            set(self.password) & set(self.punctuation)) > 1:
                 return True
         else:
             raise InvalidPassword ('Ошибка. Пароль не соответствует следующим требованиям: не менее 8 символов, буквы в верхнем и нижнем регистре, не менее одного специального символа')
@@ -55,8 +55,8 @@ class Validator():
     def validate_email(self) -> bool:
         """email — присутствует символ @, оканчивается . и 2 символами (.by)"""
         email_zone = {'.by','.com','.ru','.io','.net'}
-        # print(self.email[(len(self.email) - self.email[::-1].find('.') - 1):])
-        if '@' in self.email and self.email[(len(self.email) - self.email[::-1].find('.') - 1):] in email_zone:
+        # print(self.email[(self.email.rfind('.')):])
+        if '@' in self.email and self.email[(self.email.rfind('.')):] in email_zone:
             return True
         else:
             raise InvalidPassword ('Ошибка. Email не соответствует следующим требованиям:  присутствует символ @, оканчивается . и 2 символами (.by)')
