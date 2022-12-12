@@ -26,7 +26,7 @@ class Deque:
         """Добавление элемента в начало списка"""
         if isinstance(data, DataObject):
             self.deque_list.insert(0, data.data) if len(self.deque_list) < 5 else print('Очередь переполнена')
-            return self.deque_list
+            return None
         else:
             return(f'Переданный: {data}, не является наследником DataObject')
 
@@ -35,19 +35,19 @@ class Deque:
         """Добавление элемента в конец списка"""
         if isinstance(data, DataObject):
             self.deque_list.append(data.data) if len(self.deque_list) < 5 else print('Очередь переполнена')
-            return self.deque_list
+            return None
         else:
             return(f'Переданный: {data}, не является наследником DataObject')
 
     @classmethod
     def pop_left(self):
         """Удаление элемента в начале списка"""
-        return self.deque_list.pop(0), self.deque_list
+        return self.deque_list.pop(0)
 
     @classmethod
     def pop_right(self):
         """Удаление элемента в конце списка"""
-        return self.deque_list.pop(-1), self.deque_list
+        return self.deque_list.pop(-1)
 
 
 
