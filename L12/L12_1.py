@@ -25,13 +25,13 @@ class InputOperatorError(Exception):
 x = ''
 while x != 'yes':
     match_input = input ('Введите формулу, следующего вида "2 + 2", "22 / 11": ')
-    # match_input = ('1 Ё 3')
+    # match_input = ('1 + ф')
     a = match_input.split(' ')
     if len(a) != 3:
         raise InputFormulaError('В формуле больше знаков чем должно быть!')
     try:
-        a[0] = float(a[0]) 
-        a[2] = float(a[2])
+        a[0] == float(a[0]) 
+        a[2] == float(a[2])
     except ValueError:
         raise InputNumberError('Проверьте введённые значения. Возможно это буквы!')
     if a[1] in ('+', '-', '/', '*', '**'):
