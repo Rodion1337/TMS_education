@@ -19,20 +19,49 @@ q.queue
 # [16,280,text]
 """
 
-class InvalidIntDivision(Exception):
-    pass
-
-class InvalidIntNumberCount(Exception):
+class InvalidInt(Exception):
     pass
 
 class InvalidFloat(Exception):
     pass
 
-class InvalidFloatNumber(Exception):
-    pass
-
 class InvalidStr(Exception):
     pass
 
+
 class Queue():
-    from typing import Any
+    queue = []
+
+    def add(self, *agrs):
+        for i in agrs:
+            try:
+                if isinstance(i, int):
+                    if i % 8 == 0 and len(str(i)) <= 4:
+                        self.queue.append(i)
+                    else:
+                        raise InvalidInt
+                elif isinstance(i, float):
+                    if round(i, 2) == i:
+                        self.queue.append(i)
+                    else:
+                        raise InvalidFloat
+                elif isinstance(i, str):
+                    a = 0
+                    for c in i:
+                        if i.count(c) > 1:
+                            a = i.count(c) 
+                    if len(i) <= 4 and a < 2:
+                        self.queue.append(i)
+                    else:
+                        raise InvalidStr
+            except InvalidInt:
+                print(f'{i} - не делится на 8 или больше 4 символов')
+            except InvalidFloat:
+                print(f'{i} - больше 2 символов после запятой')
+            except InvalidStr:
+                print(f'{i} - содержит 2 повторяющихся знака или длиннее 4 знаков')
+        print(f'{self.queue}')
+
+
+q = Queue()
+q.add(1, 16, 280, 80000, 2.51, 1.875, 'text', 'data', 'world', 'qwertyy', 'kent')
