@@ -13,9 +13,13 @@ Amelia
 Adrienne
 """
 def names_gen(url_folder: str, letter_gen: str):
-    files_names = open(fr'{url_folder}', 'r')
-    list_names = sorted(list_names.readlines())
+    name_exit = []
+    files_names = open(url_folder, 'r')
+    list_names = sorted(files_names.readlines())
     files_names.close
-    print(list_names)
+    name_exit = [a for a in list_names if a.startswith(letter_gen.upper)]
+    return name_exit
 
-names_gen('L13\unsorted_names.txt','A')
+
+x = names_gen('L13\\unsorted_names.txt','A')
+print(x)
