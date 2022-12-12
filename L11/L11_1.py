@@ -38,6 +38,13 @@ class Order():
             to_pay_order = to_pay_order + i.price
         return to_pay_order
 
+    def count_dish(x) -> int:
+        """подсчет количества блюд"""
+        count_dish_order = 0
+        for i in x:
+            count_dish_order = count_dish_order + 1
+        return count_dish_order
+
     def balance(x) -> int:
         """подсчет остатка к оплате"""
         you_pay = input(f'Сумма вашего заказа {Order.to_pay(x)}. Прошу внести денежные средства: ')
@@ -46,5 +53,6 @@ class Order():
 
 
 my_order = (dish_1, dish_2)
+print(f'Вы заказали всего {Order.count_dish(my_order)} блюд, сумма вашего заказа: {Order.to_pay(my_order)}')
 print(f'Вы заказали: {my_order[0].name_dish} и {my_order[1].name_dish}')
 print(f'Остаток к оплате: {Order.balance(my_order)}')
