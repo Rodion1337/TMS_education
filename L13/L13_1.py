@@ -14,12 +14,18 @@ Adrienne
 """
 def names_gen(url_folder: str, letter_gen: str):
     name_exit = []
-    files_names = open(url_folder, 'r')
-    list_names = sorted(files_names.readlines())
+    # from os import getcwd, chdir
+    # path_folder = getcwd()
+    # if url_folder.split('\\')[0] == path_folder.split('\\')[-1]:
+    #     url_folder = str(url_folder.split('\\')[1])
+    # else:
+    #     url_folder = 'L13\\' + url_folder
+    files_names = open(fr'{url_folder}', 'r')
+    list_names = files_names.readlines()
     files_names.close
-    name_exit = [a for a in list_names if a.startswith(letter_gen.upper)]
+    name_exit = [a for a in list_names if a.startswith(letter_gen.upper())]
     return name_exit
 
 
-x = names_gen('L13\\unsorted_names.txt','A')
+x = names_gen(r'L13\unsorted_names.txt','A')
 print(x)
