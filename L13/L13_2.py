@@ -8,3 +8,6 @@
 >>> 1 4 9 16 25
 
 """
+class MySquareIterator:
+	def __init__(self, *args) -> int:
+		pass
