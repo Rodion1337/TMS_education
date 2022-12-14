@@ -5,6 +5,7 @@
 >>> itr = MySquareIterator(lst)
 >>> for el in itr:
 	print(el)
+	print(el)
 >>> 1 4 9 16 25
 
 """
