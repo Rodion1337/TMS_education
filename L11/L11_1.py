@@ -7,15 +7,72 @@
 обозначающее сумму, которую осталось оплатить (с учетом стоимости заказа и внесенных с помощью метода «оплатить» денег)
 """
 
+from dataclasses import dataclass
+
+
+@dataclass
 class Dish():
-    def __init__(self, name : str, price : int, weight : int):
-        self.name = name
-        self.price = price
-        self.weight = weight
+    """
+    Создание блюд
+    """
+    name_dish : str
+    price : int
+    weight : int
 
 dish_1 = Dish('Цезарь', 15, 150)
 dish_2 = Dish('Пюре', 5, 100)
 dish_3 = Dish('Котлета', 8, 70)
 dish_4 = Dish('Картофель фри', 5, 100)
+print(dish_1)
+print(dish_2)
+
+
+
 
 class Order():
+    x = []
+    def __init__(self, dish_order):
+        self.dish_order = dish_order
+
+    def order_list(x):
+        dish_order = []
+        dish_order.append(dict(x))
+        return dish_order
+
+    def summ_order(self,*args):
+        for i in args:
+            x.append(i)
+        print x
+
+
+class Order():
+    def __init__(self, name_dish, price, weight):
+        self.name_dish = name_dish
+        self.price = price
+        self.weight = weight
+
+    def to_pay(x) -> int:
+        """подсчет суммы к оплате"""
+        to_pay_order = 0
+        for i in x:
+            to_pay_order = to_pay_order + i.price
+        return to_pay_order
+
+    def count_dish(x) -> int:
+        """подсчет количества блюд"""
+        count_dish_order = 0
+        for i in x:
+            count_dish_order = count_dish_order + 1
+        return count_dish_order
+
+    def balance(x) -> int:
+        """подсчет остатка к оплате"""
+        you_pay = input(f'Сумма вашего заказа {Order.to_pay(x)}. Прошу внести денежные средства: ')
+        pay = Order.to_pay(x) - int(you_pay)
+        return pay
+
+
+my_order = (dish_1, dish_2)
+print(f'Вы заказали всего {Order.count_dish(my_order)} блюд, сумма вашего заказа: {Order.to_pay(my_order)}')
+print(f'Вы заказали: {my_order[0].name_dish} и {my_order[1].name_dish}')
+print(f'Остаток к оплате: {Order.balance(my_order)}')
