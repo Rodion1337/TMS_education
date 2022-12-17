@@ -12,7 +12,10 @@ from dataclasses import dataclass
 
 @dataclass
 class Dish():
-    name : str
+    """
+    Создание блюд
+    """
+    name_dish : str
     price : int
     weight : int
 
@@ -41,4 +44,35 @@ class Order():
             x.append(i)
         print x
 
-Order(dish_1, dish_2)
+
+class Order():
+    def __init__(self, name_dish, price, weight):
+        self.name_dish = name_dish
+        self.price = price
+        self.weight = weight
+
+    def to_pay(x) -> int:
+        """подсчет суммы к оплате"""
+        to_pay_order = 0
+        for i in x:
+            to_pay_order = to_pay_order + i.price
+        return to_pay_order
+
+    def count_dish(x) -> int:
+        """подсчет количества блюд"""
+        count_dish_order = 0
+        for i in x:
+            count_dish_order = count_dish_order + 1
+        return count_dish_order
+
+    def balance(x) -> int:
+        """подсчет остатка к оплате"""
+        you_pay = input(f'Сумма вашего заказа {Order.to_pay(x)}. Прошу внести денежные средства: ')
+        pay = Order.to_pay(x) - int(you_pay)
+        return pay
+
+
+my_order = (dish_1, dish_2)
+print(f'Вы заказали всего {Order.count_dish(my_order)} блюд, сумма вашего заказа: {Order.to_pay(my_order)}')
+print(f'Вы заказали: {my_order[0].name_dish} и {my_order[1].name_dish}')
+print(f'Остаток к оплате: {Order.balance(my_order)}')
