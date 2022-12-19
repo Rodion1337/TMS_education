@@ -1,0 +1,6 @@
+INSERT INTO users(first_name,last_name,gender,login,email,register_date)
+VALUES("Rodion","Kotaliov","boy","Radik1337Blr","radikmotocross@gmail.com",2022-20-12)
+INSERT INTO users(first_name,last_name,gender,login,email,register_date)
+VALUES("Vovchik","Danilov","boy","Bro27","Bro27@gmail.com",2022-01-12)
+INSERT INTO users(first_name,last_name,gender,login,email,register_date)
+VALUES("Ahmed","Ibragimov","boy","Dyx","Dyx@gmail.com",2022-20-11)
