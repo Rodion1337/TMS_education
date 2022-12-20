@@ -11,6 +11,7 @@ class Input_album():
 
     def input_album():
         open_bd = SqliteDatabase(r'{self.data_base}')
+        ...
         return(open_bd)
 
 
