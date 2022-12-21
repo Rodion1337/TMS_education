@@ -17,9 +17,14 @@ def names_gen(url_folder: str, letter_gen: str):
     files_names = open(fr'{url_folder}', 'r')
     list_names = files_names.readlines()
     files_names.close
-    name_exit = [a for a in list_names if a.startswith(letter_gen.upper())]
-    return name_exit
+
+    # name_exit = [a for a in list_names if a.startswith(letter_gen.upper())]
+    # return name_exit
+    for a in list_names:
+        if a.startswith(letter_gen.upper()):
+            yield a
 
 
 x = names_gen(r'L13\unsorted_names.txt','A')
-print(x)
+print(list(x))
+>>>>>>> homewokr13
