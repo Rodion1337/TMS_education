@@ -24,6 +24,25 @@ dish_2 = Dish('Пюре', 5, 100)
 dish_3 = Dish('Котлета', 8, 70)
 dish_4 = Dish('Картофель фри', 5, 100)
 
+
+
+
+class Order():
+    x = []
+    def __init__(self, dish_order):
+        self.dish_order = dish_order
+
+    def order_list(x):
+        dish_order = []
+        dish_order.append(dict(x))
+        return dish_order
+
+    def summ_order(self,*args):
+        for i in args:
+            x.append(i)
+        print x
+
+
 class Order():
     def __init__(self, name_dish, price, weight):
         self.name_dish = name_dish
