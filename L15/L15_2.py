@@ -3,12 +3,18 @@
 
 from peewee import *
 
-bd = SqliteDatabase(r'chinook.db')
-cursor=bd.cursor()
-cursor.execute("SELECT albums.Title, sum(tracks.UnitPrice) FROM albums JOIN tracks on albums.AlbumId = tracks.AlbumId GROUP by albums.Title")
-result = cursor.fetchall()
-bd.close()
-print(result)
+
+def input_tracks(alb):
+    bd = SqliteDatabase(r'L15\chinook.db')
+    cursor = bd.cursor()
+    cursor.execute('SELECT tracks.Name FROM albums JOIN tracks on albums.AlbumId = tracks.AlbumId WHERE albums.Title = "{alb}"')
+    # cursor.execute("SELECT Name FROM tracks")
+    result = cursor.fetchall()
+    print(result)
+    bd.close()
+
+
+input_tracks('Jagged Little Pill')
 
 # class BaseModel(Model): 
 # 	class Meta: 
