@@ -19,9 +19,9 @@ class Temperature_Conversion():
     Fahrenheit to Kelvin: K = (F-32) (5/9) + 273.15 -> FK
     Kelvin to Fahrenheit: F = (K-273.15) (9/5) + 32 -> KF
     """
-    def __init__(self, type_transf: str, temp: float):
+    def __init__(self, type_transf: str, temp: int):
         self.type_transf = type_transf.upper()
-        self.temp = float(temp)
+        self.temp = temp
         self.converts = {
             "FC": lambda x: round((self.temp - 32) * (5 / 9), 2),
             "KC": lambda x: round(self.temp - 273.15, 2),
@@ -31,7 +31,7 @@ class Temperature_Conversion():
             "KF": lambda x: round((self.temp - 273.15) * (9 / 5) + 32, 2)
             }
 
-    def tranform(self, type_transf: str, temp: float) -> float:
+    def tranform(self, type_transf: str, temp: int) -> int:
         convert = self.converts.get(type_transf.upper(), None)
         if convert:
             return convert(temp)
