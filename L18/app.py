@@ -21,7 +21,7 @@ navigation = [{'link':'/', 'name':'Главная страница'},
 
 @app.route('/index')
 @app.route('/')
-def hello_world():
+def index():
     return render_template('index.html', navigation = navigation)
 
 @app.route('/time')
