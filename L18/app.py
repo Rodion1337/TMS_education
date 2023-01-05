@@ -13,10 +13,11 @@ import requests
 
 app = Flask(__name__)
 # app.config.from_object('config.DevelopmentConfig')
+# app.register_blueprint(app)
 navigation = [{'link':'/', 'name':'Главная страница'},
     {'link':'about', 'name':'О сайте'},
     {'link':'time', 'name':'Время'},
-    {'link':'quote','name':'цитата Kanye West'}]
+    {'link':'kanye_west','name':'цитата Kanye West'}]
 
 @app.route('/index')
 @app.route('/')
@@ -31,15 +32,12 @@ def time_out():
 def about():
     return render_template('about.html', navigation = navigation)
 
-print(requests.get('https://api.kanye.rest'))
 
-@app.route('/quote')
-def quote():
-    spoiler = requests.post('https://api.kanye.rest')
-    print(spoiler)
-    spoiler.text
-    print(spoiler)
-    return render_template('kanye_west.html', navigation = navigation, spoiler = spoiler)
+@app.route('/kanye_west')
+def kanye_west():
+    spoiler = requests.get('https://api.kanye.rest')
+    kanye_west = spoiler.text
+    return render_template('kanye-west.html', navigation = navigation, kanye_west = kanye_west)
 
 
 if __name__ == '__main__':
