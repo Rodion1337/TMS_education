@@ -4,16 +4,14 @@ from flask import Flask, render_template
 from datetime import datetime
 import requests
 
-# def create_app():
-#     app = Flask(__name__)
-#     app.config.from_object('config.DevelopmentConfig')
-#     return app
+def create_app():
+    app = Flask(__name__)
+    # app.config.from_object('config.DevelopmentConfig')
+    return app
 
-# app = create_app()
+app = create_app()
 
-app = Flask(__name__)
-# app.config.from_object('config.DevelopmentConfig')
-# app.register_blueprint(app)
+
 navigation = [{'link':'/', 'name':'Главная страница'},
     {'link':'about', 'name':'О сайте'},
     {'link':'time', 'name':'Время'},
@@ -37,7 +35,7 @@ def about():
 def kanye_west():
     spoiler = requests.get('https://api.kanye.rest')
     kanye_west = spoiler.text
-    return render_template('kanye-west.html', navigation = navigation, kanye_west = kanye_west)
+    return render_template('kanye-west.html', navigation = navigation, kanyewest = kanye_west[(kanye_west.find(":",0)+1):-1])
 
 
 if __name__ == '__main__':
