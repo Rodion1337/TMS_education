@@ -34,8 +34,8 @@ def about():
 @app.route('/kanye_west')
 def kanye_west():
     spoiler = requests.get('https://api.kanye.rest')
-    kanye_west = spoiler.text
-    return render_template('kanye-west.html', navigation = navigation, kanyewest = kanye_west[(kanye_west.find(":",0)+1):-1])
+    kanye_west = spoiler.json()
+    return render_template('kanye_west.html', navigation = navigation, kanyewest = kanye_west['quote'])
 
 
 if __name__ == '__main__':
