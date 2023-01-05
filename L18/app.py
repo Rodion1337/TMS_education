@@ -16,7 +16,7 @@ app = Flask(__name__)
 navigation = [{'link':'/', 'name':'Главная страница'},
     {'link':'about', 'name':'О сайте'},
     {'link':'time', 'name':'Время'},
-    {'link':'kanye_west','name':'цитата Kanye West'}]
+    {'link':'quote','name':'цитата Kanye West'}]
 
 @app.route('/index')
 @app.route('/')
@@ -33,9 +33,10 @@ def about():
 
 print(requests.get('https://api.kanye.rest'))
 
-@app.route('/kanye_west')
-def kanye_west():
-    spoiler = requests.get('https://api.kanye.rest')
+@app.route('/quote')
+def quote():
+    spoiler = requests.post('https://api.kanye.rest')
+    spoiler.text
     print(spoiler)
     return render_template('kanye_west.html', navigation = navigation, spoiler = spoiler)
 
