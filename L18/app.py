@@ -36,6 +36,7 @@ print(requests.get('https://api.kanye.rest'))
 @app.route('/quote')
 def quote():
     spoiler = requests.post('https://api.kanye.rest')
+    print(spoiler)
     spoiler.text
     print(spoiler)
     return render_template('kanye_west.html', navigation = navigation, spoiler = spoiler)
