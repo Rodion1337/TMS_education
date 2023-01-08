@@ -30,18 +30,18 @@ class Temperature_Conversion():
             }
 
     def tranform(self, type_transf: str, temp: int) -> int:
+        self.temp = temp
         convert = self.converts.get(type_transf.upper(), None)
         if convert:
             return convert(temp)
         else:
             return 'Ошибка проверьте введенные значения / Error check entered values'
 
+# type_transf = 'kf'
+# temp_transf = 200
+
 if __name__ == '__main__':
     type_transf = input('Введите тип преобразования: ')
     temp_transf = float(input('Введите преобразуемое значение: '))
-    trans = Temperature_Conversion(type_transf, temp_transf)
+    trans = Temperature_Conversion()
     print(trans.tranform(type_transf, temp_transf))
-
-
-# type_transf = 'cf'
-# temp_transf = 100
