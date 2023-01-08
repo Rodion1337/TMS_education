@@ -19,9 +19,7 @@ class Temperature_Conversion():
     Fahrenheit to Kelvin: K = (F-32) (5/9) + 273.15 -> FK
     Kelvin to Fahrenheit: F = (K-273.15) (9/5) + 32 -> KF
     """
-    def __init__(self, type_transf: str, temp: int):
-        self.type_transf = type_transf.upper()
-        self.temp = temp
+    def __init__(self):
         self.converts = {
             "FC": lambda x: round((self.temp - 32) * (5 / 9), 2),
             "KC": lambda x: round(self.temp - 273.15, 2),
@@ -38,13 +36,12 @@ class Temperature_Conversion():
         else:
             return 'Ошибка проверьте введенные значения / Error check entered values'
 
-    
+if __name__ == '__main__':
+    type_transf = input('Введите тип преобразования: ')
+    temp_transf = float(input('Введите преобразуемое значение: '))
+    trans = Temperature_Conversion(type_transf, temp_transf)
+    print(trans.tranform(type_transf, temp_transf))
 
-type_transf = input('Введите тип преобразования: ')
-temp_transf = float(input('Введите преобразуемое значение: '))
 
 # type_transf = 'cf'
 # temp_transf = 100
-
-trans = Temperature_Conversion(type_transf, temp_transf)
-print(trans.tranform(type_transf, temp_transf))
