@@ -2,8 +2,8 @@
 
 from flask import Flask, render_template
 from datetime import datetime
-# from flask import Request
-from requests import get
+from flask import request
+import requests
 
 def create_app():
     app = Flask(__name__)
@@ -31,11 +31,12 @@ def about():
     return render_template('about.html', navigation = navigation)
 
 
-@app.route('/kanye_west')
+@app.route('/kanye_west', methods=['GET'])
 def kanye_west():
-    spoiler = get('https://api.kanye.rest')
-    # kanye_west = spoiler.json()
-    return render_template('kanye_west.html', navigation = navigation, kanyewest = spoiler['quote'])
+    print(request.form['test'])
+    spoiler = requests.get('https://api.kanye.rest')
+    kanye_west = spoiler.json()
+    return render_template('kanye_west.html', navigation = navigation, kanyewest = kanye_west['quote'])
 
 
 if __name__ == '__main__':
