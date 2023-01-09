@@ -1,8 +1,9 @@
 #! .venv/scripts/python
 
-from flask import Flask, render_template, Request, url_for
+from flask import Flask, render_template
 from datetime import datetime
-# import requests
+# from flask import Request
+from requests import get
 
 def create_app():
     app = Flask(__name__)
@@ -11,10 +12,10 @@ def create_app():
 
 app = create_app()
 
-navigation = [{'link':url_for('/'), 'name':'Главная страница'},
-    {'link':url_for('about'), 'name':'О сайте'},
-    {'link':url_for('time'), 'name':'Время'},
-    {'link':url_for('kanye_west'),'name':'цитата Kanye West'}]
+navigation = [{'link':'/', 'name':'Главная страница'},
+    {'link':'about', 'name':'О сайте'},
+    {'link':'time', 'name':'Время'},
+    {'link':'kanye_west','name':'цитата Kanye West'}]
 
 @app.route('/index')
 @app.route('/')
@@ -32,9 +33,9 @@ def about():
 
 @app.route('/kanye_west')
 def kanye_west():
-    spoiler = requests.get('https://api.kanye.rest')
-    kanye_west = spoiler.json()
-    return render_template('kanye_west.html', navigation = navigation, kanyewest = kanye_west['quote'])
+    spoiler = get('https://api.kanye.rest')
+    # kanye_west = spoiler.json()
+    return render_template('kanye_west.html', navigation = navigation, kanyewest = spoiler['quote'])
 
 
 if __name__ == '__main__':
