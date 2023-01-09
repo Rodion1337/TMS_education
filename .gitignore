@@ -1,5 +1,5 @@
 .vscode/launch.json
-.docx
+*.docx
 .db-journal
 /venv
 # Byte-compiled / optimized / DLL files
@@ -145,3 +145,4 @@ API
 Training
 Blog
 About
+
