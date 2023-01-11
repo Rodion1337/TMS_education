@@ -4,7 +4,7 @@ from flask import Flask, render_template
 from datetime import datetime
 from flask import request
 import requests
-
+from L13_3 import Validator
 
 def create_app():
     app = Flask(__name__)
@@ -46,10 +46,13 @@ def register():
     # print('login ', request.args.get('login'))
     # print('email ', request.args.get('email'))
     # print('password ', request.args.get('password'))
-    print(dict(request.form))
-    print(request.method == 'POST')
-    print(dict(request.form)['password'])
-    return render_template('register.html')
+    user = dict(request.form)
+    validation = Validator(user['login'], user['password'], user['email'])
+    # print(validation.validate_email())
+    # print(validation.validate_login())
+    # print(validation.validate_password())
+    validation_out = "Спасибо за регистрацию" if (validation.validate_email() and validation.validate_login() and validation.validate_password()) else "error"
+    return render_template('register.html', validation_out = validation_out)
 
 if __name__ == '__main__':
     app.run()
