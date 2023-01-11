@@ -5,6 +5,7 @@ from datetime import datetime
 from flask import request
 import requests
 
+
 def create_app():
     app = Flask(__name__)
     # app.config.from_object('config.DevelopmentConfig')
@@ -31,7 +32,7 @@ def about():
     return render_template('about.html', navigation = navigation)
 
 
-@app.route('/kanye_west', methods=['GET'])
+@app.route('/kanye_west')
 def kanye_west():
     number_quote = int(request.args.get('number', 1)) #получение данных по ключу
     if number_quote < 1: #валидация входных
@@ -39,6 +40,16 @@ def kanye_west():
     quote = set([(requests.get('https://api.kanye.rest').json())['quote'] for i in range(number_quote)]) #генерация списка цитат с очисткой от повторов
     return render_template('kanye_west.html', navigation = navigation, quote = quote)
 
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    # print('login ', request.args.get('login'))
+    # print('email ', request.args.get('email'))
+    # print('password ', request.args.get('password'))
+    print(dict(request.form))
+    print(request.method == 'POST')
+    print(dict(request.form)['password'])
+    return render_template('register.html')
 
 if __name__ == '__main__':
     app.run()
