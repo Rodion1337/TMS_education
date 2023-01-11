@@ -33,10 +33,11 @@ def about():
 
 @app.route('/kanye_west', methods=['GET'])
 def kanye_west():
-    print(request.form['test'])
-    spoiler = requests.get('https://api.kanye.rest')
-    kanye_west = spoiler.json()
-    return render_template('kanye_west.html', navigation = navigation, kanyewest = kanye_west['quote'])
+    number_quote = int(request.args.get('number', 1)) #получение данных по ключу
+    if number_quote < 1: #валидация входных
+        number_quote = 1
+    quote = set([(requests.get('https://api.kanye.rest').json())['quote'] for i in range(number_quote)]) #генерация списка цитат с очисткой от повторов
+    return render_template('kanye_west.html', navigation = navigation, quote = quote)
 
 
 if __name__ == '__main__':

@@ -9,6 +9,8 @@
         <li><a href="{{ c['link'] }}">{{ c['name'] }}</a></li>
     {% endfor %}
     </ul>
-    <h3>"{{ kanyewest }}"</h3>
+    <h3>{% for c in quote %}
+        <li>{{c}}</li>
+    {% endfor %}</h3>
 </body>
 </html>
