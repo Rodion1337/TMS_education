@@ -1,4 +1,4 @@
-#! .venv/scripts/python
+#!.venv/bin/python
 
 from flask import Flask, render_template, Request, url_for
 from datetime import datetime
@@ -12,10 +12,10 @@ def create_app():
 app = create_app()
 
 
-navigation = [{'link':url_for('/'), 'name':'Главная страница'},
-    {'link':url_for('about'), 'name':'О сайте'},
-    {'link':url_for('time'), 'name':'Время'},
-    {'link':url_for('kanye_west'),'name':'цитата Kanye West'}]
+navigation = [{'link':'/', 'name':'Главная страница'},
+    {'link':'about', 'name':'О сайте'},
+    {'link':'time', 'name':'Время'},
+    {'link':'kanye_west','name':'цитата Kanye West'}]
 
 @app.route('/index')
 @app.route('/')
