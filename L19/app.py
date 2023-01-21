@@ -16,7 +16,8 @@ app = create_app()
 navigation = [{'link':'/', 'name':'Главная страница'},
     {'link':'about', 'name':'О сайте'},
     {'link':'time_out', 'name':'Время'},
-    {'link':'kanye_west','name':'цитата Kanye West'}]
+    {'link':'kanye_west','name':'цитата Kanye West'},
+    {'link': 'register','name': 'Регистрация'}]
 
 @app.route('/index')
 @app.route('/')
