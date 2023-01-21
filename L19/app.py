@@ -44,15 +44,14 @@ def kanye_west():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    # print('login ', request.args.get('login'))
-    # print('email ', request.args.get('email'))
-    # print('password ', request.args.get('password'))
     user = dict(request.form)
-    validation = Validator(user['login'], user['password'], user['email'])
-    # print(validation.validate_email())
-    # print(validation.validate_login())
-    # print(validation.validate_password())
-    validation_out = "Спасибо за регистрацию" if (validation.validate_email() and validation.validate_login() and validation.validate_password()) else "error"
+    if bool(user):
+        validation = Validator(user['login'], user['password'], user['email'])
+        validation_out = "Спасибо за регистрацию" if (validation.validate_email() and validation.validate_login() and validation.validate_password()) else "error"
+        print(user)
+    else:
+        validation_out = 'Введите данные для регистрации'
+        print(user)
     return render_template('register.html', validation_out = validation_out)
 
 if __name__ == '__main__':
