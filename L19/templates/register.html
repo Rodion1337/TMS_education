@@ -5,6 +5,12 @@
         <title>Данные формы</title>
 </head>
     <body>
+        <ul id="navigation">
+            {% for c in navigation %}
+                <li><a href="{{ c['link'] }}">{{ c['name'] }}</a></li>
+            {% endfor %}
+            </ul>
+
         <form method="post">
             <p>Login: <input name="login" type="text"></p>
             <p>E-mail: <input name="email" type="text"></p>

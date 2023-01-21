@@ -3,14 +3,19 @@
 <head>
     <title>My Webpage</title>
 </head>
-<body>
-    <ul id="navigation">
-    {% for c in navigation %}
-        <li><a href="{{ c['link'] }}">{{ c['name'] }}</a></li>
-    {% endfor %}
-    </ul>
-    <h3>{% for c in quote %}
-        <li>{{c}}</li>
-    {% endfor %}</h3>
-</body>
+    <body>
+        <ul id="navigation">
+        {% for c in navigation %}
+            <li><a href="{{ c['link'] }}">{{ c['name'] }}</a></li>
+        {% endfor %}
+        </ul>
+        <form method="get">
+            <p>сколько вывести цитат? : <input name="number" type="text"></p>
+            <p><input type="submit"></p>
+        </form>
+        <h3>{% for i in quote %}
+            <li>{{i}}</li>
+        {% endfor %}
+        </h3>
+    </body>
 </html>

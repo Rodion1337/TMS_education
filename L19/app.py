@@ -1,4 +1,4 @@
-#! .venv/bin/python
+#!.venv/bin/python
 
 from flask import Flask, render_template, request
 from datetime import datetime
@@ -36,10 +36,10 @@ def about():
 @app.route('/kanye_west')
 def kanye_west():
     number_quote = int(request.args.get('number', 1)) #получение данных по ключу
+    print(number_quote)
     if number_quote < 1: #валидация входных
         number_quote = 1
     quote = set([get('https://api.kanye.rest').json()['quote'] for i in range(number_quote)]) #генерация списка цитат с очисткой от повторов
-    
     return render_template('kanye_west.html', navigation = navigation, quote = quote)
 
 
@@ -53,7 +53,7 @@ def register():
     else:
         validation_out = 'Введите данные для регистрации'
         print(user)
-    return render_template('register.html', validation_out = validation_out)
+    return render_template('register.html', validation_out = validation_out, navigation = navigation)
 
 if __name__ == '__main__':
     app.run()
