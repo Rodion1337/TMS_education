@@ -5,10 +5,11 @@ from datetime import datetime
 from flask import request
 import requests
 from L13_3 import Validator
+import config
 
 def create_app():
     app = Flask(__name__)
-    # app.config.from_object('config.DevelopmentConfig')
+    app.config['DEBUG'] = config.DevelopmentConfig.DEBUG
     return app
 
 app = create_app()

@@ -74,8 +74,8 @@ class Validator():
 
 
 
-pass_valid = Validator('Radik1337Blr','qweQWE!E','radikmotocross@gmail.com')
-print(pass_valid.validate())
+# pass_valid = Validator('Radik1337Blr','qweQWE!E','radikmotocross@gmail.com')
+# print(pass_valid.validate())
 
-pass_valid2 = Validator('Radik1337Blr','qwe!@#Ezxc','radikmotocross@gmail.com').validate()
-print(pass_valid2)
+# pass_valid2 = Validator('Radik1337Blr','qwe!@#Ezxc','radikmotocross@gmail.com').validate()
+# print(pass_valid2)
