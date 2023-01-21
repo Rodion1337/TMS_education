@@ -1,9 +1,8 @@
-#! .venv/scripts/python
+#! .venv/bin/python
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from datetime import datetime
-from flask import request
-import requests
+from requests import get
 from L13_3 import Validator
 import config
 
@@ -16,7 +15,7 @@ app = create_app()
 
 navigation = [{'link':'/', 'name':'Главная страница'},
     {'link':'about', 'name':'О сайте'},
-    {'link':'time', 'name':'Время'},
+    {'link':'time_out', 'name':'Время'},
     {'link':'kanye_west','name':'цитата Kanye West'}]
 
 @app.route('/index')
@@ -24,7 +23,7 @@ navigation = [{'link':'/', 'name':'Главная страница'},
 def index():
     return render_template('index.html', navigation = navigation)
 
-@app.route('/time')
+@app.route('/time_out')
 def time_out():
     return render_template('time.html', navigation = navigation, time = datetime.now().isoformat())
 
@@ -38,7 +37,8 @@ def kanye_west():
     number_quote = int(request.args.get('number', 1)) #получение данных по ключу
     if number_quote < 1: #валидация входных
         number_quote = 1
-    quote = set([(requests.get('https://api.kanye.rest').json())['quote'] for i in range(number_quote)]) #генерация списка цитат с очисткой от повторов
+    quote = set([get('https://api.kanye.rest').json()['quote'] for i in range(number_quote)]) #генерация списка цитат с очисткой от повторов
+    
     return render_template('kanye_west.html', navigation = navigation, quote = quote)
 
 
