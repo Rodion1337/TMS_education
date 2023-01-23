@@ -20,7 +20,7 @@ class InvalidEmail(Exception):
 
 
 class Validator():
-    from string import ascii_lowercase, ascii_uppercase, punctuation
+    #from string import ascii_lowercase, ascii_uppercase, punctuation
 
     # def __init__(self, login: str, password: str, email: str):
     #     self.login = login
@@ -29,40 +29,41 @@ class Validator():
     #     self.pattern_login = r'^[A-Za-z0-9]{6,10}$'
     #     self.pattern_password = r'^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$'
     #     self.pattern_email = r'^[\w.-]+@[\w.-]+\.(\S{2}$)'
-    def __init__(self):
-        self.pattern_login = r'^[A-Za-z0-9]{6,10}$'
-        self.pattern_password = r'^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$'
-        self.pattern_email = r'^[\w.-]+@[\w.-]+\.(\S{2}$)'
+    
+
+    pattern_login = r'^[A-Za-z0-9]{6,10}$'
+    pattern_password = r'^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$'
+    pattern_email = r'^[\w.-]+@[\w.-]+\.(\S{2}$)'
 
 
-    def validate_login(self, login:str) -> bool:
+    def validate_login(login:str, pattern_login=pattern_login) -> bool:
         """login — не менее 6 символов"""
-        if match(self.pattern_login, login):
+        if match(pattern_login, login):
             return True 
         else:
-            # raise InvalidLogin('Длина логина менее 6 знаков!')
-            return ('Длина логина менее 6 знаков!')
+            raise InvalidLogin('Длина логина менее 6 знаков!')
+            # return ('Длина логина менее 6 знаков!')
 
 
 
-    def validate_password(self, password: str) -> bool:
+    def validate_password(password: str, pattern_password=pattern_password) -> bool:
         """password — не менее 8 символов, буквы в верхнем и нижнем регистре, не менее одного специального символа (+-/*! и т.д)"""
-        if match(self.pattern_password, password):
+        if match(pattern_password, password):
             return True 
         else:
-            # raise InvalidPassword ('Ошибка. Пароль не соответствует следующим требованиям: не менее 8 символов, буквы в верхнем и нижнем регистре, не менее одного специального символа')
-            return ('Ошибка. Пароль не соответствует следующим требованиям: не менее 8 символов, буквы в верхнем и нижнем регистре, не менее одного специального символа')
+            raise InvalidPassword ('Ошибка. Пароль не соответствует следующим требованиям: не менее 8 символов, буквы в верхнем и нижнем регистре, не менее одного специального символа')
+            # return ('Ошибка. Пароль не соответствует следующим требованиям: не менее 8 символов, буквы в верхнем и нижнем регистре, не менее одного специального символа')
 
-    def validate_email(self, email: str) -> bool:
+    def validate_email(email: str, pattern_email=pattern_email) -> bool:
         """email — присутствует символ @, оканчивается . и 2 символами (.by)"""
         email_zone = {'.by','.com','.ru','.io','.net'}
         # print(self.email[(self.email.rfind('.')):])
         # if '@' in self.email and self.email[(self.email.rfind('.')):] in email_zone:
-        if match(self.pattern_email, email):
+        if match(pattern_email, email):
             return True
         else:
-            # raise InvalidPassword ('Ошибка. Email не соответствует следующим требованиям:  присутствует символ @, оканчивается . и 2 символами (.by)')
-            return ('Ошибка. Email не соответствует следующим требованиям:  присутствует символ @, оканчивается . и 2 символами (.by)')
+            raise InvalidPassword ('Ошибка. Email не соответствует следующим требованиям:  присутствует символ @, оканчивается . и 2 символами (.by)')
+            # return ('Ошибка. Email не соответствует следующим требованиям:  присутствует символ @, оканчивается . и 2 символами (.by)')
 
     def validate(self) -> bool:
         try:
