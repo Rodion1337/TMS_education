@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Webpage</title>
+</head>
+<body>
+    <ul id="navigation">
+    {% for c in navigation %}
+        <li><a href="{{ url_for(c['link']) }}">{{ c['name'] }}</a></li>
+    {% endfor %}
+    </ul>
+
+    <h1>Здесь определённо что будет, но не сейчас!</h1>
+</body>
+</html>
