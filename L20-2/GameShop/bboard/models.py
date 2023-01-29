@@ -14,22 +14,26 @@ class Bd(models.Model):
         ordering = ['-publisher']
 
 class user(models.Model):
-    login = models.CharField(max_length=150, verbose_name='Ник', validators=[Validator.validate_login])
+    login = models.CharField(max_length=150, verbose_name='Ник', validators=[Validator.validate_login], db_index = True, primary_key = True)
     firstname = models.CharField(max_length=150, verbose_name='Имя')
     lastname = models.CharField(max_length=150, verbose_name='Фамилия')
-    email = models.CharField(max_length=150, verbose_name='E-mail', validators=[Validator.validate_email])
+    email = models.EmailField(verbose_name='E-mail', validators=[Validator.validate_email])
     password = models.CharField(max_length=150, verbose_name='Пароль', validators=[Validator.validate_password])
     
     class Meta:
         verbose_name = 'Пользователь'
         verbose_name_plural = 'Пользователи'
         ordering = ['login']
+    
+    def __str__(self):
+        return self.login
+
 
 class post(models.Model):
-    title = models.CharField(max_length=150, verbose_name='Тема')
-    content = models.TextField(verbose_name='Статья')
-    published = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Дата публикации')
-    author = models.ForeignKey('user', verbose_name=("Автор"), on_delete=models.SET_DEFAULT, default = 'user delete')
+    title = models.CharField(max_length = 150, verbose_name = 'Тема')
+    content = models.TextField(verbose_name = 'Статья')
+    published = models.DateField(auto_now_add = True, db_index = True, verbose_name = 'Дата публикации')
+    author = models.ForeignKey(user, on_delete = models.SET_DEFAULT, verbose_name = ("Автор"), default='user delete')
     
     class Meta:
         verbose_name = 'Публикация'

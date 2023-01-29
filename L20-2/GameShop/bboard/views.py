@@ -19,6 +19,3 @@ def render_bboard(request):
     bbs = Bd.objects.order_by('-publisher')
     context = {'bbs': bbs}
     return HttpResponse(template.render(context, request))
-
-# def render_bboard(request):
-#     return HttpResponse("lol")
