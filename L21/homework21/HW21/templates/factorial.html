@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Webpage</title>
+</head>
+    <body>
+        <form method="get">
+            <p>факториал како числа посчитать? : <input name="number" type="text"></p>
+            <p><input type="submit"></p>
+        </form>
+        {% block content %}
+        <h3> факториал чиста: {{number_factorial}} равен: {{factorial}}
+        </h3>
+        {% endblock %}
+    </body>
+</html>
