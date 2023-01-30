@@ -19,5 +19,5 @@ from HW22 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(views)),
+    path('', views.index),
 ]
