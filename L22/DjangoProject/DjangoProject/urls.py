@@ -20,4 +20,6 @@ from HW22 import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
+    path('about/', views.about),
+    path('index/', views.index),
 ]
