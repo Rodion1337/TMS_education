@@ -20,6 +20,7 @@ from HW22 import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
-    path('about/', views.about),
-    path('index/', views.index),
+    path('about/', views.about, name = 'about'),
+    path('index/', views.index, name = 'index'),
+    path('skills/', views.skills, name = 'skills'),
 ]
