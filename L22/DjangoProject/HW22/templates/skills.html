@@ -2,26 +2,19 @@
 {% load static %}
 {% block title %}Skills{% endblock %}
 {% block content %}
-<head>
-    <meta charset="utf-8" />
-    <title>Django</title>
-</head>
 <body method = "post">
-    <div><img src="{% static "images/foto.jpg" %}" alt="Foto" width="500" height="600" align = "left">
-        <div>
-            <table border="1" bgcolor = orange bordercolor = red width="120">
-            <tr><th>Навыки</th><th>оценка из 5 возможных</th></tr>
-            <th><h2>Soft skills:</h2></th>
-            {% for a,b in soft_skills.items %}
-            <tr><th>{{ a }}</th><th>{{b}}</th></tr>
-            {% endfor %}
-            <th><h2>Hard skills:</h2></th>
-            {% for a,b in hard_skills.items %}
-            <tr><th>{{ a }}</th><th>{{b}}</th></tr>
-            {% endfor %}
-            </table>
-        </div></div>
-    
+    <div>
+        <table border="1" bgcolor = orange bordercolor = red width="120">
+        <tr><th>Навыки</th><th>оценка из 5 возможных</th></tr>
+        <th><h2>Soft skills:</h2></th>
+        {% for a,b in soft_skills.items %}
+        <tr><th>{{ a }}</th><th>{{b}}</th></tr>
+        {% endfor %}
+        <th><h2>Hard skills:</h2></th>
+        {% for a,b in hard_skills.items %}
+        <tr><th>{{ a }}</th><th>{{b}}</th></tr>
+        {% endfor %}
+        </table>
+    </div>
 </body>
-
 {% endblock %}
