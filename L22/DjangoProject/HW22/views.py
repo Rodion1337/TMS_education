@@ -19,7 +19,10 @@ def skills(request):
     return render(request, 'skills.html', context = skills)
 
 def about(request):
-    return HttpResponse('Hello world!')
+    return render(request, 'about.html')
+
+def education(request):
+    return render(request, 'education.html')
 
 def index(request):
     return HttpResponse('Hello world!')
