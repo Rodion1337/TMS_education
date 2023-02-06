@@ -76,15 +76,15 @@ WSGI_APPLICATION = 'DjangoProject.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'default_last': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     },
-    'postgresql': { 
+    'default': { 
 		'ENGINE': 'django.db.backends.postgresql_psycopg2', 
-		'NAME': 'GameShop_HW23', 
-		'USER': 'Radik1337Blr', 
-		'PASSWORD': '6303', 
+		'NAME': 'gameshop_hw23', 
+		'USER': 'dbuseradmin', 
+		'PASSWORD': 'qwertyAdmin', 
 		'HOST': '127.0.0.1', 
 		'PORT': '5432'
 	}
