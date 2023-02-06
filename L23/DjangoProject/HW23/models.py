@@ -44,3 +44,6 @@ class games(models.Model):
         verbose_name = 'Игра'
         verbose_name_plural = 'Игры'
         ordering = ['name']
+        
+    def __str__(self) -> str:
+        return self.name
