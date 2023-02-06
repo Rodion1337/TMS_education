@@ -28,12 +28,17 @@ class user(models.Model):
     def __str__(self):
         return self.login
 
-
 class post(models.Model):
     title = models.CharField(max_length = 150, verbose_name = 'Тема')
     content = models.TextField(verbose_name = 'Статья')
     published = models.DateField(auto_now_add = True, db_index = True, verbose_name = 'Дата публикации')
-    author = models.ForeignKey(user, on_delete = models.SET_DEFAULT, verbose_name = ("Автор"), default='user delete')
+    author = models.ForeignKey(user, on_delete= models.DO_NOTHING, verbose_name = ("Автор"))
+    
+    def delete(self, *args, **kwargs):
+        self.login = self.login + " delete"
+        # model.status = "delete"
+        # self.activate = False
+        self.save()
     
     class Meta:
         verbose_name = 'Публикация'
