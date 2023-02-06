@@ -1,1 +1,795 @@
-[{"model": "admin.logentry", "pk": 1, "fields": {"action_time": "2023-02-05T23:07:43.468Z", "user": 2, "content_type": 7, "object_id": "1", "object_repr": "Santa Monica", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 2, "fields": {"action_time": "2023-02-05T23:10:38.790Z", "user": 2, "content_type": 9, "object_id": "1", "object_repr": "action", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 3, "fields": {"action_time": "2023-02-05T23:12:07.384Z", "user": 2, "content_type": 8, "object_id": "1", "object_repr": "games object (1)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 4, "fields": {"action_time": "2023-02-05T23:14:30.683Z", "user": 2, "content_type": 7, "object_id": "2", "object_repr": "Naughty Dog", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 5, "fields": {"action_time": "2023-02-05T23:15:33.597Z", "user": 2, "content_type": 8, "object_id": "2", "object_repr": "games object (2)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 6, "fields": {"action_time": "2023-02-05T23:17:38.613Z", "user": 2, "content_type": 7, "object_id": "3", "object_repr": "NetherRealm Studios", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 7, "fields": {"action_time": "2023-02-05T23:19:41.290Z", "user": 2, "content_type": 8, "object_id": "3", "object_repr": "games object (3)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 8, "fields": {"action_time": "2023-02-05T23:20:47.100Z", "user": 2, "content_type": 7, "object_id": "4", "object_repr": "CD Projekt RED", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 9, "fields": {"action_time": "2023-02-05T23:21:44.729Z", "user": 2, "content_type": 9, "object_id": "2", "object_repr": "RPG", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 10, "fields": {"action_time": "2023-02-05T23:23:02.519Z", "user": 2, "content_type": 8, "object_id": "4", "object_repr": "games object (4)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 11, "fields": {"action_time": "2023-02-05T23:24:56.976Z", "user": 2, "content_type": 7, "object_id": "5", "object_repr": "Bethesda Softworks", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 12, "fields": {"action_time": "2023-02-05T23:25:40.949Z", "user": 2, "content_type": 8, "object_id": "5", "object_repr": "games object (5)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 13, "fields": {"action_time": "2023-02-05T23:26:57.218Z", "user": 2, "content_type": 8, "object_id": "2", "object_repr": "games object (2)", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"\\u0414\\u043e\\u0441\\u0442\\u0443\\u043f\\u043d\\u043e\\u0441\\u0442\\u044c\"]}}]"}}, {"model": "admin.logentry", "pk": 14, "fields": {"action_time": "2023-02-05T23:27:11.626Z", "user": 2, "content_type": 8, "object_id": "2", "object_repr": "games object (2)", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"\\u0414\\u043e\\u0441\\u0442\\u0443\\u043f\\u043d\\u043e\\u0441\\u0442\\u044c\"]}}]"}}, {"model": "admin.logentry", "pk": 15, "fields": {"action_time": "2023-02-05T23:58:18.025Z", "user": 2, "content_type": 8, "object_id": "4", "object_repr": "games object (4)", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"\\u041b\\u043e\\u0433\\u043e\\u0442\\u0438\\u043f \\u0438\\u0433\\u0440\\u044b\"]}}]"}}, {"model": "admin.logentry", "pk": 16, "fields": {"action_time": "2023-02-05T23:59:14.368Z", "user": 2, "content_type": 8, "object_id": "4", "object_repr": "games object (4)", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"\\u041b\\u043e\\u0433\\u043e\\u0442\\u0438\\u043f \\u0438\\u0433\\u0440\\u044b\"]}}]"}}, {"model": "auth.permission", "pk": 1, "fields": {"name": "Can add log entry", "content_type": 1, "codename": "add_logentry"}}, {"model": "auth.permission", "pk": 2, "fields": {"name": "Can change log entry", "content_type": 1, "codename": "change_logentry"}}, {"model": "auth.permission", "pk": 3, "fields": {"name": "Can delete log entry", "content_type": 1, "codename": "delete_logentry"}}, {"model": "auth.permission", "pk": 4, "fields": {"name": "Can view log entry", "content_type": 1, "codename": "view_logentry"}}, {"model": "auth.permission", "pk": 5, "fields": {"name": "Can add permission", "content_type": 2, "codename": "add_permission"}}, {"model": "auth.permission", "pk": 6, "fields": {"name": "Can change permission", "content_type": 2, "codename": "change_permission"}}, {"model": "auth.permission", "pk": 7, "fields": {"name": "Can delete permission", "content_type": 2, "codename": "delete_permission"}}, {"model": "auth.permission", "pk": 8, "fields": {"name": "Can view permission", "content_type": 2, "codename": "view_permission"}}, {"model": "auth.permission", "pk": 9, "fields": {"name": "Can add group", "content_type": 3, "codename": "add_group"}}, {"model": "auth.permission", "pk": 10, "fields": {"name": "Can change group", "content_type": 3, "codename": "change_group"}}, {"model": "auth.permission", "pk": 11, "fields": {"name": "Can delete group", "content_type": 3, "codename": "delete_group"}}, {"model": "auth.permission", "pk": 12, "fields": {"name": "Can view group", "content_type": 3, "codename": "view_group"}}, {"model": "auth.permission", "pk": 13, "fields": {"name": "Can add user", "content_type": 4, "codename": "add_user"}}, {"model": "auth.permission", "pk": 14, "fields": {"name": "Can change user", "content_type": 4, "codename": "change_user"}}, {"model": "auth.permission", "pk": 15, "fields": {"name": "Can delete user", "content_type": 4, "codename": "delete_user"}}, {"model": "auth.permission", "pk": 16, "fields": {"name": "Can view user", "content_type": 4, "codename": "view_user"}}, {"model": "auth.permission", "pk": 17, "fields": {"name": "Can add content type", "content_type": 5, "codename": "add_contenttype"}}, {"model": "auth.permission", "pk": 18, "fields": {"name": "Can change content type", "content_type": 5, "codename": "change_contenttype"}}, {"model": "auth.permission", "pk": 19, "fields": {"name": "Can delete content type", "content_type": 5, "codename": "delete_contenttype"}}, {"model": "auth.permission", "pk": 20, "fields": {"name": "Can view content type", "content_type": 5, "codename": "view_contenttype"}}, {"model": "auth.permission", "pk": 21, "fields": {"name": "Can add session", "content_type": 6, "codename": "add_session"}}, {"model": "auth.permission", "pk": 22, "fields": {"name": "Can change session", "content_type": 6, "codename": "change_session"}}, {"model": "auth.permission", "pk": 23, "fields": {"name": "Can delete session", "content_type": 6, "codename": "delete_session"}}, {"model": "auth.permission", "pk": 24, "fields": {"name": "Can view session", "content_type": 6, "codename": "view_session"}}, {"model": "auth.permission", "pk": 25, "fields": {"name": "Can add Разработчик", "content_type": 7, "codename": "add_gamesdev"}}, {"model": "auth.permission", "pk": 26, "fields": {"name": "Can change Разработчик", "content_type": 7, "codename": "change_gamesdev"}}, {"model": "auth.permission", "pk": 27, "fields": {"name": "Can delete Разработчик", "content_type": 7, "codename": "delete_gamesdev"}}, {"model": "auth.permission", "pk": 28, "fields": {"name": "Can view Разработчик", "content_type": 7, "codename": "view_gamesdev"}}, {"model": "auth.permission", "pk": 29, "fields": {"name": "Can add Игра", "content_type": 8, "codename": "add_games"}}, {"model": "auth.permission", "pk": 30, "fields": {"name": "Can change Игра", "content_type": 8, "codename": "change_games"}}, {"model": "auth.permission", "pk": 31, "fields": {"name": "Can delete Игра", "content_type": 8, "codename": "delete_games"}}, {"model": "auth.permission", "pk": 32, "fields": {"name": "Can view Игра", "content_type": 8, "codename": "view_games"}}, {"model": "auth.permission", "pk": 33, "fields": {"name": "Can add Категория", "content_type": 9, "codename": "add_categories"}}, {"model": "auth.permission", "pk": 34, "fields": {"name": "Can change Категория", "content_type": 9, "codename": "change_categories"}}, {"model": "auth.permission", "pk": 35, "fields": {"name": "Can delete Категория", "content_type": 9, "codename": "delete_categories"}}, {"model": "auth.permission", "pk": 36, "fields": {"name": "Can view Категория", "content_type": 9, "codename": "view_categories"}}, {"model": "auth.user", "pk": 1, "fields": {"password": "pbkdf2_sha256$390000$NBLJS65bmj2ijReGdbo8Q0$KLH3HFjzSzQPE/o3qbA2Hsd/z6gTxg53vhCKfOn480w=", "last_login": null, "is_superuser": true, "username": "radik1337blr", "first_name": "", "last_name": "", "email": "radikmotocross@gmail.com", "is_staff": true, "is_active": true, "date_joined": "2023-02-02T01:24:33.797Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 2, "fields": {"password": "pbkdf2_sha256$390000$4mKR4Loaj8K8vWwr9Zl5Bu$3wA+PlG10dLMgDxJqGsOBnBkD9bFXrVTHEIvxaz02po=", "last_login": "2023-02-05T23:05:26.735Z", "is_superuser": true, "username": "Radik1337Blr", "first_name": "", "last_name": "", "email": "radikmotocross@gmail.com", "is_staff": true, "is_active": true, "date_joined": "2023-02-05T23:05:09.235Z", "groups": [], "user_permissions": []}}, {"model": "contenttypes.contenttype", "pk": 1, "fields": {"app_label": "admin", "model": "logentry"}}, {"model": "contenttypes.contenttype", "pk": 2, "fields": {"app_label": "auth", "model": "permission"}}, {"model": "contenttypes.contenttype", "pk": 3, "fields": {"app_label": "auth", "model": "group"}}, {"model": "contenttypes.contenttype", "pk": 4, "fields": {"app_label": "auth", "model": "user"}}, {"model": "contenttypes.contenttype", "pk": 5, "fields": {"app_label": "contenttypes", "model": "contenttype"}}, {"model": "contenttypes.contenttype", "pk": 6, "fields": {"app_label": "sessions", "model": "session"}}, {"model": "contenttypes.contenttype", "pk": 7, "fields": {"app_label": "HW23", "model": "gamesdev"}}, {"model": "contenttypes.contenttype", "pk": 8, "fields": {"app_label": "HW23", "model": "games"}}, {"model": "contenttypes.contenttype", "pk": 9, "fields": {"app_label": "HW23", "model": "categories"}}, {"model": "sessions.session", "pk": "90q2jo3rgfuqwwvh07xdtrtpfdkqm3oz", "fields": {"session_data": ".eJxVjEEOwiAQRe_C2hAoMC0u3XsGMgyDVA0kpV0Z765NutDtf-_9lwi4rSVsnZcwJ3EWgzj9bhHpwXUH6Y711iS1ui5zlLsiD9rltSV-Xg7376BgL9_aEWpSI3lAJmsH0jYr9gq0BZe9ckCTAfCGcyQibRCQ2DPrycXRJPH-AOTrODQ:1pOo4c:6OwBi1UlIIdl-hlXfI4dP3Np6h44wPZwuU0cNcOpSJQ", "expire_date": "2023-02-19T23:05:26.745Z"}}, {"model": "HW23.gamesdev", "pk": 1, "fields": {"nameDev": "Santa Monica", "description": ""}}, {"model": "HW23.gamesdev", "pk": 2, "fields": {"nameDev": "Naughty Dog", "description": ""}}, {"model": "HW23.gamesdev", "pk": 3, "fields": {"nameDev": "NetherRealm Studios", "description": ""}}, {"model": "HW23.gamesdev", "pk": 4, "fields": {"nameDev": "CD Projekt RED", "description": ""}}, {"model": "HW23.gamesdev", "pk": 5, "fields": {"nameDev": "Bethesda Softworks", "description": ""}}, {"model": "HW23.categories", "pk": 1, "fields": {"title": "action", "slug": "action", "description": "жанр компьютерных игр, в котором делается упор на эксплуатацию физических возможностей игрока, в том числе координации глаз и рук и скорости реакции.", "is_active": true}}, {"model": "HW23.categories", "pk": 2, "fields": {"title": "RPG", "slug": "RPG", "description": "знаменитый жанр компьютерных и видео игр, где основой игрового процесса является отогревание определенной роли. Игрок берёт под контроль определённого героя или героиню, с набором стандартных навыков, характеристик и умений.", "is_active": true}}, {"model": "HW23.games", "pk": 1, "fields": {"name": "God of War", "pub_date": "2023-02-05", "upd_date": "2023-02-05", "release_date": "2018-04-20", "price": "40.00", "gameDev": 1, "slug": "god_of_war", "category": 1, "description": "God of War – новый взгляд на популярную серию, где бессмертный полубог принимает решение измениться. Для Кратоса это значит нарушить цикл насилия, недоверия и предательства, которое было с незапамятных времен в его семействе. Именно этот цикл привел его к самым ужасным решениям – сделке с Аресом, убийству семьи, сумасшествию и мести, что в итоге стало причиной уничтожения Олимпа. Решение Кратоса также значит полный контроль над яростью – теперь он должен сам решать, когда выпустить монстра, живущего внутри себя, а когда придержать его.\r\n\r\nВ новой God of War у Кратоса есть сын, рождение которого полностью изменило жизнь полубога...", "game_image": "HW23/images/God_of_War-_Ragnarök.jpg", "is_active_game": true}}, {"model": "HW23.games", "pk": 2, "fields": {"name": "The Last of Us", "pub_date": "2023-02-05", "upd_date": "2023-02-05", "release_date": "2013-06-14", "price": "20.00", "gameDev": 2, "slug": "the_last_of_us", "category": 1, "description": "События в The Last of Us разворачиваются в Америке спустя несколько лет после глобальной катастрофы. Мир охватила страшная эпидемия, в результате которой большинство людей превратилось в безумных мутантов и лишь немногие, в том числе и главные герои игры, Джоэл и Элли, продолжили борьбу за выживание.", "game_image": "HW23/images/The_Last_of_Us_Cover.jpg", "is_active_game": true}}, {"model": "HW23.games", "pk": 3, "fields": {"name": "Mortal Kombat", "pub_date": "2023-02-05", "upd_date": "2023-02-05", "release_date": "2011-04-19", "price": "15.00", "gameDev": 3, "slug": "mortal_kombat", "category": 1, "description": "Новый Mortal Kombat продолжает серию культовых файтингов. В нем вас ждут новые возможности нового движка, увлекательная сюжетная кампания, масштабный мультиплеер, а также встреча с уже полюбившимися вам бойцами. Стоит отметить, что, несмотря на новый трехмерный движок, все бои будут происходить в 2D. Помимо этого, кроме привычных поединков один на один, в Mortal Kombat присутствуют аркадные кооперативные бои и Tag-Team бои, поддерживающие до четырех человек онлайн. Не обойдется в игре и без фирменных ударов (Fatality), которыми можно добить уже побежденного противника и которые стали еще кровавее и ожесточеннее.", "game_image": "HW23/images/300x450.webp", "is_active_game": true}}, {"model": "HW23.games", "pk": 4, "fields": {"name": "Cyberpunk 2077", "pub_date": "2023-02-05", "upd_date": "2023-02-05", "release_date": "2020-12-10", "price": "30.00", "gameDev": 4, "slug": "cyberpunk_2077", "category": 2, "description": "Cyberpunk 2077 – ролевой проект с нелинейным сюжетом, созданный на основе настольной игры Cyberpunk 2020, события которого разворачиваются в мрачном футуристическом мире с деградировавшим сообществом.\r\n\r\nГероем игры выступает молодой киберпанк V, который отправляется выполнять свой первый контракт в Найт-Сити, самый опасный мегаполис Америки, подконтрольный могущественным корпорациям. На темных улицах и огромных небоскребах города его будут поджидать сложные испытания, а также ситуации, требующие принимать сложные решения, последствия которых отразятся на всей игре.\r\n\r\nПомимо продолжительной сюжетной линии, в Cyberpunk 2077 присутствуют увлекательные сайд-квесты и множество других активностей, которыми наполнен необъятный Найт-Сити. Благодаря редактору персонажа вы сможете выбирать пол, внешность, класс и предысторию V. Все это также будет иметь свое влияние на события в игре.", "game_image": "HW23/images/Обложка_компьютерной_игры_Cyberpunk_2077.jpg", "is_active_game": true}}, {"model": "HW23.games", "pk": 5, "fields": {"name": "Fallout 4", "pub_date": "2023-02-05", "upd_date": "2023-02-05", "release_date": "2015-11-10", "price": "15.00", "gameDev": 5, "slug": "fallout_4", "category": 2, "description": "Fallout 4 – очередная часть в популярной серии ролевых игр Fallout, действие которой развивается в постапокалиптическом мире, разрушенном ядерной войной. Вы единственный кто выжил из убежища 111, и именно от вас зависит судьба пустошей. Впереди вас ждет постоянная борьба за выживание, а каждое принятое решение может стать последним.\r\n\r\nВ Fallout 4 представлен огромный открытый мир с сотней локаций, заданий и персонажей, продвинутая система крафтинга, которая позволит улучшать и создавать тысячи предметов, система персонажей S.P.E.C.I.A.L, позволяющая создавать любого героя, обновленная система пошагового прицеливания «Волт-Тек» (V.A.T.S), а также графика нового поколения и современный движок.\r\n\r\nВ октябре 2017 года вышла Fallout 4 VR – особая версия игры, разработанная для VR-устройств. В виртуальной реальности вы еще глубже погрузитесь в мир Fallout и ощутите на себе все опасности постапокалиптического мира во время борьбы за свое выживание.", "game_image": "HW23/images/Fallout_4_poster.jpg", "is_active_game": true}}]
+[
+    {
+        "model": "admin.logentry",
+        "pk": 1,
+        "fields": {
+            "action_time": "2023-02-05T23:07:43.468Z",
+            "user": 2,
+            "content_type": 7,
+            "object_id": "1",
+            "object_repr": "Santa Monica",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 2,
+        "fields": {
+            "action_time": "2023-02-05T23:10:38.790Z",
+            "user": 2,
+            "content_type": 9,
+            "object_id": "1",
+            "object_repr": "action",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 3,
+        "fields": {
+            "action_time": "2023-02-05T23:12:07.384Z",
+            "user": 2,
+            "content_type": 8,
+            "object_id": "1",
+            "object_repr": "games object (1)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 4,
+        "fields": {
+            "action_time": "2023-02-05T23:14:30.683Z",
+            "user": 2,
+            "content_type": 7,
+            "object_id": "2",
+            "object_repr": "Naughty Dog",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 5,
+        "fields": {
+            "action_time": "2023-02-05T23:15:33.597Z",
+            "user": 2,
+            "content_type": 8,
+            "object_id": "2",
+            "object_repr": "games object (2)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 6,
+        "fields": {
+            "action_time": "2023-02-05T23:17:38.613Z",
+            "user": 2,
+            "content_type": 7,
+            "object_id": "3",
+            "object_repr": "NetherRealm Studios",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 7,
+        "fields": {
+            "action_time": "2023-02-05T23:19:41.290Z",
+            "user": 2,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "games object (3)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 8,
+        "fields": {
+            "action_time": "2023-02-05T23:20:47.100Z",
+            "user": 2,
+            "content_type": 7,
+            "object_id": "4",
+            "object_repr": "CD Projekt RED",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 9,
+        "fields": {
+            "action_time": "2023-02-05T23:21:44.729Z",
+            "user": 2,
+            "content_type": 9,
+            "object_id": "2",
+            "object_repr": "RPG",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 10,
+        "fields": {
+            "action_time": "2023-02-05T23:23:02.519Z",
+            "user": 2,
+            "content_type": 8,
+            "object_id": "4",
+            "object_repr": "games object (4)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 11,
+        "fields": {
+            "action_time": "2023-02-05T23:24:56.976Z",
+            "user": 2,
+            "content_type": 7,
+            "object_id": "5",
+            "object_repr": "Bethesda Softworks",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 12,
+        "fields": {
+            "action_time": "2023-02-05T23:25:40.949Z",
+            "user": 2,
+            "content_type": 8,
+            "object_id": "5",
+            "object_repr": "games object (5)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 13,
+        "fields": {
+            "action_time": "2023-02-05T23:26:57.218Z",
+            "user": 2,
+            "content_type": 8,
+            "object_id": "2",
+            "object_repr": "games object (2)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u0414\\u043e\\u0441\\u0442\\u0443\\u043f\\u043d\\u043e\\u0441\\u0442\\u044c\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 14,
+        "fields": {
+            "action_time": "2023-02-05T23:27:11.626Z",
+            "user": 2,
+            "content_type": 8,
+            "object_id": "2",
+            "object_repr": "games object (2)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u0414\\u043e\\u0441\\u0442\\u0443\\u043f\\u043d\\u043e\\u0441\\u0442\\u044c\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 15,
+        "fields": {
+            "action_time": "2023-02-05T23:58:18.025Z",
+            "user": 2,
+            "content_type": 8,
+            "object_id": "4",
+            "object_repr": "games object (4)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041b\\u043e\\u0433\\u043e\\u0442\\u0438\\u043f \\u0438\\u0433\\u0440\\u044b\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 16,
+        "fields": {
+            "action_time": "2023-02-05T23:59:14.368Z",
+            "user": 2,
+            "content_type": 8,
+            "object_id": "4",
+            "object_repr": "games object (4)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041b\\u043e\\u0433\\u043e\\u0442\\u0438\\u043f \\u0438\\u0433\\u0440\\u044b\"]}}]"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 1,
+        "fields": {
+            "name": "Can add log entry",
+            "content_type": 1,
+            "codename": "add_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 2,
+        "fields": {
+            "name": "Can change log entry",
+            "content_type": 1,
+            "codename": "change_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 3,
+        "fields": {
+            "name": "Can delete log entry",
+            "content_type": 1,
+            "codename": "delete_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 4,
+        "fields": {
+            "name": "Can view log entry",
+            "content_type": 1,
+            "codename": "view_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 5,
+        "fields": {
+            "name": "Can add permission",
+            "content_type": 2,
+            "codename": "add_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 6,
+        "fields": {
+            "name": "Can change permission",
+            "content_type": 2,
+            "codename": "change_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 7,
+        "fields": {
+            "name": "Can delete permission",
+            "content_type": 2,
+            "codename": "delete_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 8,
+        "fields": {
+            "name": "Can view permission",
+            "content_type": 2,
+            "codename": "view_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 9,
+        "fields": {
+            "name": "Can add group",
+            "content_type": 3,
+            "codename": "add_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 10,
+        "fields": {
+            "name": "Can change group",
+            "content_type": 3,
+            "codename": "change_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 11,
+        "fields": {
+            "name": "Can delete group",
+            "content_type": 3,
+            "codename": "delete_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 12,
+        "fields": {
+            "name": "Can view group",
+            "content_type": 3,
+            "codename": "view_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 13,
+        "fields": {
+            "name": "Can add user",
+            "content_type": 4,
+            "codename": "add_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 14,
+        "fields": {
+            "name": "Can change user",
+            "content_type": 4,
+            "codename": "change_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 15,
+        "fields": {
+            "name": "Can delete user",
+            "content_type": 4,
+            "codename": "delete_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 16,
+        "fields": {
+            "name": "Can view user",
+            "content_type": 4,
+            "codename": "view_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 17,
+        "fields": {
+            "name": "Can add content type",
+            "content_type": 5,
+            "codename": "add_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 18,
+        "fields": {
+            "name": "Can change content type",
+            "content_type": 5,
+            "codename": "change_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 19,
+        "fields": {
+            "name": "Can delete content type",
+            "content_type": 5,
+            "codename": "delete_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 20,
+        "fields": {
+            "name": "Can view content type",
+            "content_type": 5,
+            "codename": "view_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 21,
+        "fields": {
+            "name": "Can add session",
+            "content_type": 6,
+            "codename": "add_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 22,
+        "fields": {
+            "name": "Can change session",
+            "content_type": 6,
+            "codename": "change_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 23,
+        "fields": {
+            "name": "Can delete session",
+            "content_type": 6,
+            "codename": "delete_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 24,
+        "fields": {
+            "name": "Can view session",
+            "content_type": 6,
+            "codename": "view_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 25,
+        "fields": {
+            "name": "Can add Разработчик",
+            "content_type": 7,
+            "codename": "add_gamesdev"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 26,
+        "fields": {
+            "name": "Can change Разработчик",
+            "content_type": 7,
+            "codename": "change_gamesdev"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 27,
+        "fields": {
+            "name": "Can delete Разработчик",
+            "content_type": 7,
+            "codename": "delete_gamesdev"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 28,
+        "fields": {
+            "name": "Can view Разработчик",
+            "content_type": 7,
+            "codename": "view_gamesdev"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 29,
+        "fields": {
+            "name": "Can add Игра",
+            "content_type": 8,
+            "codename": "add_games"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 30,
+        "fields": {
+            "name": "Can change Игра",
+            "content_type": 8,
+            "codename": "change_games"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 31,
+        "fields": {
+            "name": "Can delete Игра",
+            "content_type": 8,
+            "codename": "delete_games"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 32,
+        "fields": {
+            "name": "Can view Игра",
+            "content_type": 8,
+            "codename": "view_games"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 33,
+        "fields": {
+            "name": "Can add Категория",
+            "content_type": 9,
+            "codename": "add_categories"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 34,
+        "fields": {
+            "name": "Can change Категория",
+            "content_type": 9,
+            "codename": "change_categories"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 35,
+        "fields": {
+            "name": "Can delete Категория",
+            "content_type": 9,
+            "codename": "delete_categories"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 36,
+        "fields": {
+            "name": "Can view Категория",
+            "content_type": 9,
+            "codename": "view_categories"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$390000$NBLJS65bmj2ijReGdbo8Q0$KLH3HFjzSzQPE/o3qbA2Hsd/z6gTxg53vhCKfOn480w=",
+            "last_login": null,
+            "is_superuser": true,
+            "username": "radik1337blr",
+            "first_name": "",
+            "last_name": "",
+            "email": "radikmotocross@gmail.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2023-02-02T01:24:33.797Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$390000$4mKR4Loaj8K8vWwr9Zl5Bu$3wA+PlG10dLMgDxJqGsOBnBkD9bFXrVTHEIvxaz02po=",
+            "last_login": "2023-02-05T23:05:26.735Z",
+            "is_superuser": true,
+            "username": "Radik1337Blr",
+            "first_name": "",
+            "last_name": "",
+            "email": "radikmotocross@gmail.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2023-02-05T23:05:09.235Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 1,
+        "fields": {
+            "app_label": "admin",
+            "model": "logentry"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 2,
+        "fields": {
+            "app_label": "auth",
+            "model": "permission"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 3,
+        "fields": {
+            "app_label": "auth",
+            "model": "group"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 4,
+        "fields": {
+            "app_label": "auth",
+            "model": "user"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 5,
+        "fields": {
+            "app_label": "contenttypes",
+            "model": "contenttype"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 6,
+        "fields": {
+            "app_label": "sessions",
+            "model": "session"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 7,
+        "fields": {
+            "app_label": "HW23",
+            "model": "gamesdev"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 8,
+        "fields": {
+            "app_label": "HW23",
+            "model": "games"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 9,
+        "fields": {
+            "app_label": "HW23",
+            "model": "categories"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "90q2jo3rgfuqwwvh07xdtrtpfdkqm3oz",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2hAoMC0u3XsGMgyDVA0kpV0Z765NutDtf-_9lwi4rSVsnZcwJ3EWgzj9bhHpwXUH6Y711iS1ui5zlLsiD9rltSV-Xg7376BgL9_aEWpSI3lAJmsH0jYr9gq0BZe9ckCTAfCGcyQibRCQ2DPrycXRJPH-AOTrODQ:1pOo4c:6OwBi1UlIIdl-hlXfI4dP3Np6h44wPZwuU0cNcOpSJQ",
+            "expire_date": "2023-02-19T23:05:26.745Z"
+        }
+    },
+    {
+        "model": "HW23.gamesdev",
+        "pk": 1,
+        "fields": {
+            "nameDev": "Santa Monica",
+            "description": ""
+        }
+    },
+    {
+        "model": "HW23.gamesdev",
+        "pk": 2,
+        "fields": {
+            "nameDev": "Naughty Dog",
+            "description": ""
+        }
+    },
+    {
+        "model": "HW23.gamesdev",
+        "pk": 3,
+        "fields": {
+            "nameDev": "NetherRealm Studios",
+            "description": ""
+        }
+    },
+    {
+        "model": "HW23.gamesdev",
+        "pk": 4,
+        "fields": {
+            "nameDev": "CD Projekt RED",
+            "description": ""
+        }
+    },
+    {
+        "model": "HW23.gamesdev",
+        "pk": 5,
+        "fields": {
+            "nameDev": "Bethesda Softworks",
+            "description": ""
+        }
+    },
+    {
+        "model": "HW23.categories",
+        "pk": 1,
+        "fields": {
+            "title": "action",
+            "slug": "action",
+            "description": "жанр компьютерных игр, в котором делается упор на эксплуатацию физических возможностей игрока, в том числе координации глаз и рук и скорости реакции.",
+            "is_active": true
+        }
+    },
+    {
+        "model": "HW23.categories",
+        "pk": 2,
+        "fields": {
+            "title": "RPG",
+            "slug": "RPG",
+            "description": "знаменитый жанр компьютерных и видео игр, где основой игрового процесса является отогревание определенной роли. Игрок берёт под контроль определённого героя или героиню, с набором стандартных навыков, характеристик и умений.",
+            "is_active": true
+        }
+    },
+    {
+        "model": "HW23.games",
+        "pk": 1,
+        "fields": {
+            "name": "God of War",
+            "pub_date": "2023-02-05",
+            "upd_date": "2023-02-05",
+            "release_date": "2018-04-20",
+            "price": "40.00",
+            "gameDev": 1,
+            "slug": "god_of_war",
+            "category": 1,
+            "description": "God of War – новый взгляд на популярную серию, где бессмертный полубог принимает решение измениться. Для Кратоса это значит нарушить цикл насилия, недоверия и предательства, которое было с незапамятных времен в его семействе. Именно этот цикл привел его к самым ужасным решениям – сделке с Аресом, убийству семьи, сумасшествию и мести, что в итоге стало причиной уничтожения Олимпа. Решение Кратоса также значит полный контроль над яростью – теперь он должен сам решать, когда выпустить монстра, живущего внутри себя, а когда придержать его.\r\n\r\nВ новой God of War у Кратоса есть сын, рождение которого полностью изменило жизнь полубога...",
+            "game_image": "HW23/images/God_of_War-_Ragnarök.jpg",
+            "is_active_game": true
+        }
+    },
+    {
+        "model": "HW23.games",
+        "pk": 2,
+        "fields": {
+            "name": "The Last of Us",
+            "pub_date": "2023-02-05",
+            "upd_date": "2023-02-05",
+            "release_date": "2013-06-14",
+            "price": "20.00",
+            "gameDev": 2,
+            "slug": "the_last_of_us",
+            "category": 1,
+            "description": "События в The Last of Us разворачиваются в Америке спустя несколько лет после глобальной катастрофы. Мир охватила страшная эпидемия, в результате которой большинство людей превратилось в безумных мутантов и лишь немногие, в том числе и главные герои игры, Джоэл и Элли, продолжили борьбу за выживание.",
+            "game_image": "HW23/images/The_Last_of_Us_Cover.jpg",
+            "is_active_game": true
+        }
+    },
+    {
+        "model": "HW23.games",
+        "pk": 3,
+        "fields": {
+            "name": "Mortal Kombat",
+            "pub_date": "2023-02-05",
+            "upd_date": "2023-02-05",
+            "release_date": "2011-04-19",
+            "price": "15.00",
+            "gameDev": 3,
+            "slug": "mortal_kombat",
+            "category": 1,
+            "description": "Новый Mortal Kombat продолжает серию культовых файтингов. В нем вас ждут новые возможности нового движка, увлекательная сюжетная кампания, масштабный мультиплеер, а также встреча с уже полюбившимися вам бойцами. Стоит отметить, что, несмотря на новый трехмерный движок, все бои будут происходить в 2D. Помимо этого, кроме привычных поединков один на один, в Mortal Kombat присутствуют аркадные кооперативные бои и Tag-Team бои, поддерживающие до четырех человек онлайн. Не обойдется в игре и без фирменных ударов (Fatality), которыми можно добить уже побежденного противника и которые стали еще кровавее и ожесточеннее.",
+            "game_image": "HW23/images/300x450.webp",
+            "is_active_game": true
+        }
+    },
+    {
+        "model": "HW23.games",
+        "pk": 4,
+        "fields": {
+            "name": "Cyberpunk 2077",
+            "pub_date": "2023-02-05",
+            "upd_date": "2023-02-05",
+            "release_date": "2020-12-10",
+            "price": "30.00",
+            "gameDev": 4,
+            "slug": "cyberpunk_2077",
+            "category": 2,
+            "description": "Cyberpunk 2077 – ролевой проект с нелинейным сюжетом, созданный на основе настольной игры Cyberpunk 2020, события которого разворачиваются в мрачном футуристическом мире с деградировавшим сообществом.\r\n\r\nГероем игры выступает молодой киберпанк V, который отправляется выполнять свой первый контракт в Найт-Сити, самый опасный мегаполис Америки, подконтрольный могущественным корпорациям. На темных улицах и огромных небоскребах города его будут поджидать сложные испытания, а также ситуации, требующие принимать сложные решения, последствия которых отразятся на всей игре.\r\n\r\nПомимо продолжительной сюжетной линии, в Cyberpunk 2077 присутствуют увлекательные сайд-квесты и множество других активностей, которыми наполнен необъятный Найт-Сити. Благодаря редактору персонажа вы сможете выбирать пол, внешность, класс и предысторию V. Все это также будет иметь свое влияние на события в игре.",
+            "game_image": "HW23/images/Обложка_компьютерной_игры_Cyberpunk_2077.jpg",
+            "is_active_game": true
+        }
+    },
+    {
+        "model": "HW23.games",
+        "pk": 5,
+        "fields": {
+            "name": "Fallout 4",
+            "pub_date": "2023-02-05",
+            "upd_date": "2023-02-05",
+            "release_date": "2015-11-10",
+            "price": "15.00",
+            "gameDev": 5,
+            "slug": "fallout_4",
+            "category": 2,
+            "description": "Fallout 4 – очередная часть в популярной серии ролевых игр Fallout, действие которой развивается в постапокалиптическом мире, разрушенном ядерной войной. Вы единственный кто выжил из убежища 111, и именно от вас зависит судьба пустошей. Впереди вас ждет постоянная борьба за выживание, а каждое принятое решение может стать последним.\r\n\r\nВ Fallout 4 представлен огромный открытый мир с сотней локаций, заданий и персонажей, продвинутая система крафтинга, которая позволит улучшать и создавать тысячи предметов, система персонажей S.P.E.C.I.A.L, позволяющая создавать любого героя, обновленная система пошагового прицеливания «Волт-Тек» (V.A.T.S), а также графика нового поколения и современный движок.\r\n\r\nВ октябре 2017 года вышла Fallout 4 VR – особая версия игры, разработанная для VR-устройств. В виртуальной реальности вы еще глубже погрузитесь в мир Fallout и ощутите на себе все опасности постапокалиптического мира во время борьбы за свое выживание.",
+            "game_image": "HW23/images/Fallout_4_poster.jpg",
+            "is_active_game": true
+        }
+    }
+]
