@@ -19,3 +19,10 @@ def game_amount_up(sender, instance, **kwargs):
     instance = instance.category
     instance.game_amount -= 1
     instance.save()
+        
+# @receiver(post_save, sender = games)   
+# def upd_slug(sender, instance, **kwargs):
+#     if instance.slug == 'null':
+#         x = instance.name
+#         instance.slug = '_'.join(x.lower().split(' '))
+#         instance.save()
