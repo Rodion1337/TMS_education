@@ -41,7 +41,7 @@ class games(models.Model):
     release_date = models.DateField(verbose_name='Дата релиза')
     price = models.DecimalField(max_digits=8, decimal_places=2, verbose_name = 'Цена', default = 0)
     gameDev = models.ForeignKey(GamesDev, verbose_name = 'Издатель', on_delete = models.PROTECT)
-    slug = models.SlugField()
+    slug = models.SlugField(blank = True, null = True)
     category = models.ForeignKey("categories", verbose_name = 'Категория', on_delete = models.PROTECT)
     description = models.TextField(verbose_name = 'Описание игры')
     game_image = models.ImageField(verbose_name = 'Логотип игры', upload_to = 'images', height_field=None, width_field=None, max_length=None)

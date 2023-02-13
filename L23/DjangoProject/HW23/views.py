@@ -33,20 +33,3 @@ def category_views(request, category = None):
         return render(request, 'games.html', context={'games' : games_view,})
 
 
-from django.dispatch import receiver
-from django.db.models.signals import post_save, post_delete
-
-@receiver(post_save, sender = games)
-def game_amount_up(sender, instance, created, **kwargs):
-    instance = instance.category
-    if created:
-        instance.game_amount += 1
-        instance.save()
-
-
-@receiver(post_delete, sender = games)
-def game_amount_up(sender, instance, created, **kwargs):
-    instance = instance.category
-    if created:
-        instance.game_amount += 1
-        instance.save()
