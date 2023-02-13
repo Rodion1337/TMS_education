@@ -14,10 +14,11 @@ class GamesDev(models.Model):
         return self.nameDev
 
 class categories(models.Model):
-    title = models.CharField(verbose_name = 'Категория', max_length=50)
-    slug = models.SlugField(verbose_name=("Адрес"))
-    description = models.TextField(verbose_name=("Описание"))
-    is_active = models.fields.BooleanField(verbose_name='Доступность')
+    title = models.CharField(verbose_name = 'Категория', max_length = 50)
+    slug = models.SlugField(verbose_name = ("Адрес"))
+    description = models.TextField(verbose_name = ("Описание"))
+    is_active = models.fields.BooleanField(verbose_name = 'Доступность')
+    game_amount = models.IntegerField(verbose_name = 'Игр в категории', default = 0)
     
     class Meta:
         verbose_name = 'Категория'
@@ -28,7 +29,7 @@ class categories(models.Model):
         return self.title
 
 class status(models.Model):
-    status_name = models.CharField(verbose_name='Статус', max_length=50)
+    status_name = models.CharField(verbose_name = 'Статус', max_length = 50)
     
     def __str__(self) -> str:
         return self.status_name
@@ -45,7 +46,7 @@ class games(models.Model):
     description = models.TextField(verbose_name = 'Описание игры')
     game_image = models.ImageField(verbose_name = 'Логотип игры', upload_to = 'images', height_field=None, width_field=None, max_length=None)
     is_active_game = models.fields.BooleanField(verbose_name='Доступность')
-    status = models.ForeignKey(status, verbose_name='Статус', on_delete = models.PROTECT, default=0)
+    status = models.ForeignKey(status, verbose_name='Статус', on_delete = models.PROTECT, default = 1)
     
     
     class Meta:

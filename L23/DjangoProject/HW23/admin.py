@@ -7,9 +7,9 @@ class GamesDevAdmin(admin.ModelAdmin):
     list_display_links = ('nameDev',)
 
 class categoriesAdmin(admin.ModelAdmin):
-    list_display = ('title', 'description', 'is_active',)
+    list_display = ('title', 'description', 'is_active','game_amount',)
     list_display_links = ('title', 'description', 'is_active',)
-    list_filter = ('title', 'description', 'is_active',)
+    list_filter = ('title', 'description', 'is_active','game_amount',)
 
 class gamesAdmin(admin.ModelAdmin):
     list_display = ('name', 'gameDev', 'release_date', 'category', 'is_active_game', 'status',)
