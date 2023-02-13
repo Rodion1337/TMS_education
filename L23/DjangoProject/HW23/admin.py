@@ -12,10 +12,15 @@ class categoriesAdmin(admin.ModelAdmin):
     list_filter = ('title', 'description', 'is_active',)
 
 class gamesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'gameDev', 'release_date', 'category', 'is_active_game',)
+    list_display = ('name', 'gameDev', 'release_date', 'category', 'is_active_game', 'status',)
     list_display_links = ('name',)
-    search_fields = ('name', 'gameDev', 'release_date', 'category', 'is_active_game',)
+    search_fields = ('name', 'gameDev', 'release_date', 'category', 'is_active_game','status',)
+
+class statusAdmin(admin.ModelAdmin):
+    list_display = ('status_name',)
+    search_fields = ('status_name',)
 
 admin.site.register(GamesDev, GamesDevAdmin)
 admin.site.register(categories, categoriesAdmin)
 admin.site.register(games, gamesAdmin)
+admin.site.register(status, statusAdmin)

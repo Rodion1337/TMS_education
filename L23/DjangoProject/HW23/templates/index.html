@@ -1,0 +1,26 @@
+{% extends "base.html"%}
+{% load static %}
+{%block title%} Главная {% endblock %}
+<div>
+    <p><a href="categories"> Categories </a></p>
+</div>
+<hr>
+{% block content %}
+{% block sort %}
+<div style="float:right">
+    <p class="block-text">sort by:</p>
+    <a class="block-link" href="?sort=name">Name</a>
+    <a class="block-link" href="?sort=price">Price</a>
+</div>
+{% endblock %}
+<div>
+    {% for game in games %}
+    <p><a href="game/{{game.slug}}"> {{game.name}} </a></p>
+    <p>Price: {{game.price}} Dollars </p>
+    <img src="{{game.game_image}}" alt="{{game.name}}" width="250">
+    <p>Category: <a href=/category/{{game.category}}> {{game.category}} </a></p>
+    <hr>
+    {% endfor %}
+</div>
+
+{% endblock %}

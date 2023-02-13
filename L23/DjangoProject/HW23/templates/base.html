@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>{%block title%} {% endblock %}</title>
+    <p><a href="/"> Все игры </a></p>
+    <p><a href="/category/RPG"> RPG </a></p>
+    <p><a href="/category/action"> action </a></p>
+</head>
+<body>
+
+<div>
+{% block content%}
+{% endblock %}
+</div>
+</body>
+</html>
