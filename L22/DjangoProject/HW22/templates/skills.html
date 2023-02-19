@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Skills{% endblock %}
+{% block content %}
+<body method = "post">
+    <div>
+        <table border="1" bgcolor = orange bordercolor = red width="120">
+        <tr><th>Навыки</th><th>оценка из 5 возможных</th></tr>
+        <th><h2>Soft skills:</h2></th>
+        {% for a,b in soft_skills.items %}
+        <tr><th>{{ a }}</th><th>{{b}}</th></tr>
+        {% endfor %}
+        <th><h2>Hard skills:</h2></th>
+        {% for a,b in hard_skills.items %}
+        <tr><th>{{ a }}</th><th>{{b}}</th></tr>
+        {% endfor %}
+        </table>
+    </div>
+</body>
+{% endblock %}

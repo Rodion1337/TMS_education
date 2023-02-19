@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Title{% endblock %}</title>
+    <ul>
+        <li><a href="{% url 'skills' %}">skills</a></li>
+        <li><a href="{% url 'about' %}">Обо мне</a></li>
+        <li><a href="{% url 'education' %}">Образование</a></li>
+        </ul>
+</head>
+<body>
+{% block content %} {% endblock %}
+</body>
+</html>
