@@ -38,4 +38,4 @@ def upd_slug(sender, instance, **kwargs):
                 pass
             else:
                 name_slug += str(dic[i])
-        instance.slug = name_slug.lower()
+        instance.slug = name_slug
