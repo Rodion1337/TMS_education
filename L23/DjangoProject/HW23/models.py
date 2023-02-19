@@ -60,7 +60,6 @@ class Games(ShopInfoMixin):
             models.Index(
                 fields=('name', 'price'),
                 name = 'index_name_price',
-                opclasses = ()
             )
         ]
         
