@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Webpage</title>
+</head>
+    <body>
+        <form method="get">
+            <p>сколько вывести цитат? : <input name="number" type="text"></p>
+            <p><input type="submit"></p>
+        </form>
+        {% block content %}
+        <h3>{% for i in quote %}
+            <li>{{i}}</li>
+        {% endfor %}
+        </h3>
+        {% endblock %}
+    </body>
+</html>
