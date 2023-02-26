@@ -33,10 +33,10 @@ def category_views(request, category = None):
     }
 
     if category != None:
-        games_view = Games.objects.filter(category = Categories.objects.get(title = category).id)
+        games_view = sorted_order.get(sorted_game).filter(category = Categories.objects.get(title = category).id)
         return render(request, 'games.html', context={'games' : games_view,})
     else:
-        games_view = Games.objects.all()
+        games_view = sorted_order.get(sorted_game).all()
         return render(request, 'games.html', context={'games' : games_view,})
 
 

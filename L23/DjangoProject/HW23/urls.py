@@ -1,6 +1,8 @@
 from django.urls import path
+from django.contrib.auth.views import LoginView
 from . import views
 
+app_name = 'HW23'
 urlpatterns = [
     path('', views.index, name='index'),
     path('game/<slug:game_slug>', views.game_views, name = 'game_views'),
