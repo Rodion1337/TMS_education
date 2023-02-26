@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import *
 from django.db.models import Avg
+from . import actions_admin
 # Register your models here.
 
 class GamesDevAdmin(admin.ModelAdmin):
@@ -23,6 +24,7 @@ class GamesAdmin(admin.ModelAdmin):
     list_display_links = ('name',)
     search_fields = ('name', 'gameDev', 'release_date', 'category', 'is_active', 'status',)
     fields = ('name', 'gameDev', 'release_date', 'category', 'price', 'description', 'is_active', 'status', 'game_image', 'slug',)
+    actions = (actions_admin.status_not_available, actions_admin.not_available, actions_admin.on_sale, actions_admin.export_as_csv, )
     
     @admin.display(description='game image')
     def img_preview(self, obj):
