@@ -18,28 +18,22 @@ class LoginForm(Form):
 
 
 def register(request):
-    """
-    Представлении регистрации
-    """
-    if request.method == 'POST':                                        #получение тип запрос с фронта + проверка
-        form = UserCreationForm(request.POST)                           #??? для чего UserCreationForm
-        if form.is_valid():                                             #проверка чего-то...
-            form.save()                                                 #что-то сохранилось но не понятно что и куда
-            username = form.cleaned_data.get('username')                #???
-            messages.success(request, f'Создан аккаунт {username}!')    #сообщение юзеру что он красавчик
-            return redirect(reverse('index'))                      #возврат на исходную точку
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Создан аккаунт {username}!')
+            return redirect(reverse('HW23:index'))
     else:
-        form = UserCreationForm()                                       #
-    return render(request, 'users/register.html', {'form': form})       
+        form = UserCreationForm()
+    return render(request, 'users/register.html', {'form': form})
 
 
 def login_view(request):
-    """
-    Представление входа в аккаунт,так же перенаправление.
-    """
     if request.method == 'POST':
         form = LoginForm(request.POST)
-        next_url = request.POST.get('next') # необходимо для перенаправление на ресурс
+        next_url = request.POST.get('next')
         if form.is_valid():
             cd = form.cleaned_data
             user = authenticate(username=cd['username'], password=cd['password'])
@@ -57,8 +51,5 @@ def login_view(request):
 
 
 def logout_view(request):
-    """
-    Представление разлогирования
-    """
     logout(request)
-    return redirect('shop:index')
+    return redirect('HW23:index')
