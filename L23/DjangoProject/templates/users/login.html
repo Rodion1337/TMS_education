@@ -10,8 +10,8 @@
 <form method="post">
   {% csrf_token %}
   {{form.as_p}}
+  <input type="hidden" name="next" value="{{ next }}"/>
   <input type="submit" value="Login">
-  <input type="hidden" name="next" value="{{ request.GET.next }}"/>
 </form>
 
 <a href="{%url 'HW23:games' %}">Back to shop</a>
