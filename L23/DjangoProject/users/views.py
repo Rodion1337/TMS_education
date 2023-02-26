@@ -12,15 +12,15 @@ from django.urls import reverse
 from django.forms import *
 
 
-class LoginForm(Form):
+class LoginForm(Form):                                              #создание заполняемых полей при регистрации
     username = CharField()
     password = CharField(widget=PasswordInput)
 
 
 def register(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
+    if request.method == 'POST':                                    #проверка типа обращения
+        form = UserCreationForm(request.POST)                       #получение данных
+        if form.is_valid():                                         #проверка валидности
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Создан аккаунт {username}!')
@@ -31,8 +31,9 @@ def register(request):
 
 
 def login_view(request):
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
+    if request.method == 'POST':                                    #проверка типа обращения
+        form = LoginForm(request.POST)                              #получение данных
+        print(form)
         next_url = request.POST.get('next')
         if form.is_valid():
             cd = form.cleaned_data
