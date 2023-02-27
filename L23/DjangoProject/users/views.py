@@ -1,7 +1,6 @@
-from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import logout
@@ -20,11 +19,13 @@ class LoginForm(Form):                                              #созда�
 def register(request):
     if request.method == 'POST':                                    #проверка типа обращения
         form = UserCreationForm(request.POST)                       #получение данных
+        next_url = request.POST.get('next') if request.POST.get('next') !='' else 'index/'
         if form.is_valid():                                         #проверка валидности
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Создан аккаунт {username}!')
-            return redirect(reverse('HW23:index'))
+            print(next_url)
+            return HttpResponseRedirect(next_url)
     else:
         form = UserCreationForm()
     return render(request, 'users/register.html', {'form': form})
@@ -33,15 +34,15 @@ def register(request):
 def login_view(request):
     if request.method == 'POST':                                    #проверка типа обращения
         form = LoginForm(request.POST)                              #получение данных
-        print(form)
         next_url = request.POST.get('next')
+        print(next_url)
         if form.is_valid():
             cd = form.cleaned_data
             user = authenticate(username=cd['username'], password=cd['password'])
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return redirect(next_url)
+                    return HttpResponseRedirect(next_url)
                 else:
                     return HttpResponse('Disabled account')
             else:
