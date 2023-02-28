@@ -36,7 +36,7 @@ class StatusAdmin(admin.ModelAdmin):
     search_fields = ('status_name',)
     
 class CommentsAdmin(admin.ModelAdmin):
-    list_display = ('game', 'author', 'title', 'content', 'is_active', 'create_date', 'upd_date', 'rating')
+    list_display = ('game', 'author', 'title', 'content', 'is_active', 'create_date', 'upd_date', 'rating','guest')
     search_fields = ('game', 'author',)
 
 admin.site.register(GamesDev, GamesDevAdmin)

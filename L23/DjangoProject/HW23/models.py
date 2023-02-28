@@ -52,7 +52,7 @@ class Games(ShopInfoMixin):
     description = models.TextField(verbose_name = 'Описание игры')
     game_image = models.ImageField(verbose_name = 'Логотип игры', upload_to = 'images', height_field=None, width_field=None, max_length=None)
     status = models.ForeignKey(Status, verbose_name='Статус', on_delete = models.PROTECT, default = 1)
-    rating_avg = models.IntegerField(verbose_name='Рейтинг', validators=[MaxValueValidator(10),MinValueValidator(0)], default = 0)
+    rating_avg = models.FloatField(verbose_name='Рейтинг', validators=[MaxValueValidator(10),MinValueValidator(0)], default = 0)
     
     class Meta:
         verbose_name = 'Игра'
@@ -76,7 +76,8 @@ class Comments(models.Model):
     is_active = models.BooleanField(verbose_name = 'Выводить на экран?', default = True, db_index = True)
     create_date = models.DateField(auto_now_add=True, verbose_name='Дата публикации')
     upd_date = models.DateField(auto_now=True, verbose_name='Дата обновления')
-    rating = models.IntegerField(verbose_name="Оценка")
+    rating = models.IntegerField(verbose_name="Оценка", validators=[MaxValueValidator(10),MinValueValidator(0)], default = 0)
+    guest = models.BooleanField(verbose_name = 'Автор гость?', default = False)
     
     class Meta:
         verbose_name = 'Комментарий'
