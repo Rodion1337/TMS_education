@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 
@@ -51,6 +52,7 @@ class Games(ShopInfoMixin):
     description = models.TextField(verbose_name = 'Описание игры')
     game_image = models.ImageField(verbose_name = 'Логотип игры', upload_to = 'images', height_field=None, width_field=None, max_length=None)
     status = models.ForeignKey(Status, verbose_name='Статус', on_delete = models.PROTECT, default = 1)
+    rating_avg = models.IntegerField(verbose_name='Рейтинг', validators=[MaxValueValidator(10),MinValueValidator(0)], default = 0)
     
     class Meta:
         verbose_name = 'Игра'
@@ -65,3 +67,21 @@ class Games(ShopInfoMixin):
         
     def __str__(self) -> str:
         return self.name
+    
+class Comments(models.Model):
+    game = models.ForeignKey(Games, on_delete=models.CASCADE, verbose_name='Игра')
+    author = models.CharField(verbose_name='Автор', max_length=50)
+    title = models.CharField(verbose_name='Заголовок', max_length=50)
+    content = models.TextField(verbose_name='Комментарий')
+    is_active = models.BooleanField(verbose_name = 'Выводить на экран?', default = True, db_index = True)
+    create_date = models.DateField(auto_now_add=True, verbose_name='Дата публикации')
+    upd_date = models.DateField(auto_now=True, verbose_name='Дата обновления')
+    rating = models.IntegerField(verbose_name="Оценка")
+    
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
+        ordering = ['-create_date']
+    
+    def __str__(self) -> str:
+        return self.title

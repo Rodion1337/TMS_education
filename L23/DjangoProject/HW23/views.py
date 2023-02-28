@@ -1,6 +1,8 @@
-from django.shortcuts import render
-from .models import Games, Categories
+from django.shortcuts import render, get_object_or_404
+from .models import Games, Categories, Comments
 from django.http import HttpResponse, HttpRequest
+from .forms_app import UserCommentForm, GuestCommentForm
+from django.db.models import Avg
 
 # Create your views here.
 
@@ -40,5 +42,10 @@ def category_views(request, category = None):
         games_view = sorted_order.get(sorted_game).all()
         return render(request, 'games.html', context={'games' : games_view,})
 
-
-
+def game_detail(request, game_slug):
+    games = get_object_or_404(Games, slug = game_slug)
+    comments = Comments.objects.order_by('create_date').filter(game = games)
+    average_rating = round(comments.aggregate(Avg("rating"))['rating__avg'],1)
+    print(average_rating)
+    context = {'game': games, 'comments': comments, 'average': average_rating}
+    return render(request, 'game-detail.html', context)

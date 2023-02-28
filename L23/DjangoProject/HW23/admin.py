@@ -20,7 +20,7 @@ class CategoriesAdmin(admin.ModelAdmin):
 
 
 class GamesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'gameDev', 'release_date', 'category', 'is_active', 'status', 'slug', 'upd_date', 'img_preview',)
+    list_display = ('name', 'gameDev', 'release_date', 'category', 'is_active', 'status', 'slug', 'upd_date', 'img_preview', 'rating_avg',)
     list_display_links = ('name',)
     search_fields = ('name', 'gameDev', 'release_date', 'category', 'is_active', 'status',)
     fields = ('name', 'gameDev', 'release_date', 'category', 'price', 'description', 'is_active', 'status', 'game_image', 'slug',)
@@ -34,8 +34,13 @@ class GamesAdmin(admin.ModelAdmin):
 class StatusAdmin(admin.ModelAdmin):
     list_display = ('status_name',)
     search_fields = ('status_name',)
+    
+class CommentsAdmin(admin.ModelAdmin):
+    list_display = ('game', 'author', 'title', 'content', 'is_active', 'create_date', 'upd_date', 'rating')
+    search_fields = ('game', 'author',)
 
 admin.site.register(GamesDev, GamesDevAdmin)
 admin.site.register(Categories, CategoriesAdmin)
 admin.site.register(Games, GamesAdmin)
 admin.site.register(Status, StatusAdmin)
+admin.site.register(Comments, CommentsAdmin)

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
     'HW23.apps.Hw23Config',
     'users.apps.UsersConfig',
+    'captcha',
 ]
 
 MIDDLEWARE = [
