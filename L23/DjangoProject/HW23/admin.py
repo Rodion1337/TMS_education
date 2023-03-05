@@ -21,6 +21,8 @@ class CategoriesAdmin(admin.ModelAdmin):
 
 class GamesAdmin(admin.ModelAdmin):
     list_display = ('name', 'gameDev', 'release_date', 'category', 'is_active', 'status', 'slug', 'upd_date', 'img_preview', 'rating_avg',)
+    # list_display = tuple([field.name for field in Games._meta.get_fields()])
+    # print(tuple([field.name for field in Games._meta.get_fields()]))
     list_display_links = ('name',)
     search_fields = ('name', 'gameDev', 'release_date', 'category', 'is_active', 'status',)
     fields = ('name', 'gameDev', 'release_date', 'category', 'price', 'description', 'is_active', 'status', 'game_image', 'slug',)
