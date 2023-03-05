@@ -12,10 +12,10 @@ class CategoriesAdmin(admin.ModelAdmin):
     list_filter = ('title', 'description', 'is_active','game_amount',)
 
 class GamesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'gameDev', 'release_date', 'category', 'is_active', 'status',)
+    list_display = ('name', 'gameDev', 'release_date', 'category', 'is_active', 'status', 'slug', 'upd_date',)
     list_display_links = ('name',)
     search_fields = ('name', 'gameDev', 'release_date', 'category', 'is_active', 'status',)
-    fields = ('name', 'gameDev', 'release_date', 'category', 'price', 'description', 'is_active', 'status', 'game_image',)
+    fields = ('name', 'gameDev', 'release_date', 'category', 'price', 'description', 'is_active', 'status', 'game_image', 'slug',)
 
 class StatusAdmin(admin.ModelAdmin):
     list_display = ('status_name',)

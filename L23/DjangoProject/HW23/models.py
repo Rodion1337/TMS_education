@@ -56,6 +56,12 @@ class Games(ShopInfoMixin):
         verbose_name = 'Игра'
         verbose_name_plural = 'Игры'
         ordering = ['name']
+        indexes = [
+            models.Index(
+                fields=('name', 'price'),
+                name = 'index_name_price',
+            )
+        ]
         
     def __str__(self) -> str:
         return self.name

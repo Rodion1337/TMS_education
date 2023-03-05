@@ -32,10 +32,13 @@ def upd_slug(sender, instance, **kwargs):
         name_slug = ''
         text_free = ascii_letters + digits
         for i in instance.name:
-            if i in text_free:
+            if len(name_slug) == 50:
+                continue
+            elif i in text_free:
                 name_slug += i
             elif i in punctuation:
                 pass
             else:
                 name_slug += str(dic[i])
+        print(len(name_slug))
         instance.slug = name_slug
