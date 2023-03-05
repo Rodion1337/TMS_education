@@ -1,6 +1,6 @@
 from .models import Games, Categories, Comments
 from django.dispatch import receiver
-from django.db.models.signals import post_save, pre_delete, pre_save
+from django.db.models.signals import post_delete, post_save, pre_delete, pre_save
 from string import punctuation, ascii_letters, digits
 from django.db.models import Avg
 
@@ -44,6 +44,7 @@ def upd_slug(sender, instance, **kwargs):
         print(len(name_slug))
         instance.slug = name_slug
 
+@receiver(post_delete, sender = Comments)
 @receiver(post_save, sender = Comments)
 def upd_slug(sender, instance, **kwargs):
     print(instance.game)

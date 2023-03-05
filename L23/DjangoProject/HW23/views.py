@@ -45,7 +45,5 @@ def category_views(request, category = None):
 def game_detail(request, game_slug):
     game_odj = get_object_or_404(Games, slug = game_slug)
     comments = Comments.objects.order_by('create_date').filter(game_id = game_odj.id, is_active = True)
-    average_rating = round(comments.aggregate(Avg("rating"))['rating__avg'],1)
-    print(average_rating)
-    context = {'game': game_odj, 'comments': comments, 'average': average_rating}
-    return render(request, 'game-detail.html', context)
+    context = {'game': game_odj, 'comments': comments,}
+    return render(request, 'game.html', context)
