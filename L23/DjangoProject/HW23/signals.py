@@ -41,15 +41,15 @@ def upd_slug(sender, instance, **kwargs):
                 pass
             else:
                 name_slug += str(dic[i])
-        print(len(name_slug))
         instance.slug = name_slug
 
 @receiver(post_delete, sender = Comments)
 @receiver(post_save, sender = Comments)
 def upd_slug(sender, instance, **kwargs):
-    print(instance.game)
-    print(Games.id)
     game = Games.objects.get(name = instance.game)
-    comments = Comments.objects.order_by('create_date').filter(game = game)
-    game.rating_avg = round(comments.aggregate(Avg("rating"))['rating__avg'],1)
+    comments = Comments.objects.filter(game = game)
+    if comments.count() != 0:
+        game.rating_avg = round(comments.aggregate(Avg("rating"))['rating__avg'],1)
+    else:
+        game.rating_avg = 0
     game.save()

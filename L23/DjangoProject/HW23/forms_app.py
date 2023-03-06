@@ -5,8 +5,8 @@ from .models import Comments
 class UserCommentForm(forms.ModelForm):
     class Meta:
         model = Comments
-        exclude = ('is_active',)
-        widgets = {'game' : forms.HiddenInput}
+        exclude = ('is_active', 'guest', 'upd_date', 'author', 'game')
+
 
 class GuestCommentForm(forms.ModelForm):
     captcha = CaptchaField(label = 'Введите текст с картинки',

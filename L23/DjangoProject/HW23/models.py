@@ -1,5 +1,7 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.contrib.auth.models import User
+from django.urls import reverse
 
 # Create your models here.
 
@@ -69,8 +71,8 @@ class Games(ShopInfoMixin):
         return self.name
     
 class Comments(models.Model):
-    game = models.ForeignKey(Games, on_delete=models.CASCADE, verbose_name='Игра')
-    author = models.CharField(verbose_name='Автор', max_length=50)
+    game = models.ForeignKey(Games, on_delete=models.CASCADE, verbose_name='Игра', blank=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Автор', blank=True)
     title = models.CharField(verbose_name='Заголовок', max_length=50)
     content = models.TextField(verbose_name='Комментарий')
     is_active = models.BooleanField(verbose_name = 'Выводить на экран?', default = True, db_index = True)
@@ -86,3 +88,6 @@ class Comments(models.Model):
     
     def __str__(self) -> str:
         return self.title
+    
+    def get_absolute_url(self):
+        return reverse('HW23:game_views', kwargs={'game_slug': self.game.slug})

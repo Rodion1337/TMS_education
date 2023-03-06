@@ -19,7 +19,7 @@ class LoginForm(Form):                                              #созда�
 def register(request):
     if request.method == 'POST':                                    #проверка типа обращения
         form = UserCreationForm(request.POST)                       #получение данных
-        next_url = request.POST.get('next') if request.POST.get('next') !='' else 'index/'
+        next_url = request.POST.get('next') if request.POST.get('next') != '' else 'index/'
         if form.is_valid():                                         #проверка валидности
             form.save()
             username = form.cleaned_data.get('username')

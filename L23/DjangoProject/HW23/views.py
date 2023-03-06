@@ -1,8 +1,12 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Games, Categories, Comments
+from .models import Games, Categories, Comments, User
 from django.http import HttpResponse, HttpRequest
 from .forms_app import UserCommentForm, GuestCommentForm
 from django.db.models import Avg
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.urls import reverse_lazy, reverse
+from django.contrib.auth.decorators import login_required
+from requests import request
 
 # Create your views here.
 
@@ -42,8 +46,31 @@ def category_views(request, category = None):
         games_view = sorted_order.get(sorted_game).all()
         return render(request, 'games.html', context={'games' : games_view,})
 
+@login_required(login_url='users:login')
 def game_detail(request, game_slug):
     game_odj = get_object_or_404(Games, slug = game_slug)
-    comments = Comments.objects.order_by('create_date').filter(game_id = game_odj.id, is_active = True)
-    context = {'game': game_odj, 'comments': comments,}
+    user_id = request.user.id
+    print(type(user_id), user_id)
+    comments_user = Comments.objects.filter(game_id = game_odj.id, author = user_id)
+    comments_other = Comments.objects.order_by('create_date').filter(game_id = game_odj.id, is_active = True).exclude(author_id = user_id)
+    context = {'game': game_odj, 'comments': comments_other, 'comment_user': comments_user,}
     return render(request, 'game.html', context)
+
+class CommentCreateView(CreateView):
+    model = Comments
+    template_name = 'comment.html'
+    form_class = UserCommentForm
+    # success_url = reverse_lazy('HW23:games')
+    
+    def form_valid(self, form):
+        form.instance.game = Games.objects.get(slug=self.kwargs['game_slug'])
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+class CommentUpdateView(UpdateView):
+    model = Comments
+    form_class = UserCommentForm 
+    
+class CommentDeleteView(DeleteView):
+    model = Comments
+    success_url = reverse_lazy('HW23:games')

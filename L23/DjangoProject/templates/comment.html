@@ -1,0 +1,28 @@
+{% extends "base.html"%}
+{% load static %}
+<hr>
+{% block content %}
+{% block sort %}
+<div style="float:right">
+    <p class="block-text">sort by:</p>
+    <a class="block-link" href="?sort=name">Name</a>
+    <a class="block-link" href="?sort=price">Price</a>
+</div>
+{% endblock %}
+<div>
+{% comment %} {% for comment in comments %}    
+    <p>Автор: {{ comment.author }}</p>
+    <p>Заголовок: {{ comment.title }}</p>
+    <p>Комментарий: {{ comment.content }}</p>
+    <p>Оценка: {{ comment.rating }}</p>
+    <p>Дата создания: {{ comment.create_date }}</p>
+    <p>Дата редактирования: {{ comment.upd_date }}</p>
+{% endfor %} {% endcomment %}
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="hidden" name="next" value="{{ request.GET.next }}"/>
+    <input type="submit" value="Добавить">
+</form>
+</div>
+{% endblock %}
