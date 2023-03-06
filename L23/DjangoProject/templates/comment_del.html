@@ -2,10 +2,10 @@
 {% load static %}
 <hr>
 {% block content %}
-<p>Заголовок: {{ comment.title }}</p>
+{% comment %} <p>Заголовок: {{ comment.title }}</p>
 <p>Комментарий: {{ comment.content }}</p>
 <p>Оценка: {{ comment.rating }}</p>
-<p>Дата создания: {{ comment.create_date }}</p>
+<p>Дата создания: {{ comment.create_date }}</p> {% endcomment %}
 <form method="post">
     {% csrf_token %}
     {{form.as_p}}

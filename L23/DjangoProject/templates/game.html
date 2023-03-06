@@ -24,7 +24,7 @@
 </div>
 <div>
 {% if user.is_authenticated %}
-    {% if comment_user.count == 0 %}
+    {% if comment_user.pk == 0 %}
         <a href="{{request.path}}/comment">Добавить комментарий</a>
     {% else %}
         <p>Автор: {{ comment_user.author }}</p>
