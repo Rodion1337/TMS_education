@@ -50,10 +50,12 @@ def category_views(request, category = None):
 def game_detail(request, game_slug):
     game_odj = get_object_or_404(Games, slug = game_slug)
     user_id = request.user.id
-    print(type(user_id), user_id)
-    comments_user = Comments.objects.filter(game_id = game_odj.id, author = user_id)
+    if Comments.objects.filter(game_id = game_odj.id, author_id = user_id).count == 1:
+        comment_user = Comments.objects.filter(game_id = game_odj.id, author_id = user_id)[0]
+    else:
+        comment_user = []
     comments_other = Comments.objects.order_by('create_date').filter(game_id = game_odj.id, is_active = True).exclude(author_id = user_id)
-    context = {'game': game_odj, 'comments': comments_other, 'comment_user': comments_user,}
+    context = {'game': game_odj, 'comments_other': comments_other, 'comment_user': comment_user,}
     return render(request, 'game.html', context)
 
 class CommentCreateView(CreateView):
@@ -70,7 +72,9 @@ class CommentCreateView(CreateView):
 class CommentUpdateView(UpdateView):
     model = Comments
     form_class = UserCommentForm 
+    template_name = 'comment.html'
     
 class CommentDeleteView(DeleteView):
     model = Comments
+    template_name = 'comment.html'
     success_url = reverse_lazy('HW23:games')

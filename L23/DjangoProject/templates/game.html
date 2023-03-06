@@ -24,22 +24,22 @@
 </div>
 <div>
 {% if user.is_authenticated %}
-    {% if comment_user.count != 1 %}
-    <a href="{{request.path}}/comment">Добавить комментарий</a>
+    {% if comment_user.count == 0 %}
+        <a href="{{request.path}}/comment">Добавить комментарий</a>
     {% else %}
-    <p>Автор: {{ comment_user.author }}</p>
-    <p>Заголовок: {{ comment_user.title }}</p>
-    <p>Комментарий: {{ comment_user.content }}</p>
-    <p>Оценка: {{ comment_user.rating }}</p>
-    <p>Дата создания: {{ comment_user.create_date }}</p>
-    <p>Дата редактирования: {{ comment_user.upd_date }}</p>
-    <a href="game/{{ comment_user.id }}/comment_upd">Обновить комментарий</a>
-    <a href="game/{{ comment_user.id }}/comment_del">Удалить комментарий</a>
+        <p>Автор: {{ comment_user.author }}</p>
+        <p>Заголовок: {{ comment_user.title }}</p>
+        <p>Комментарий: {{ comment_user.content }}</p>
+        <p>Оценка: {{ comment_user.rating }}</p>
+        <p>Дата создания: {{ comment_user.create_date }}</p>
+        <p>Дата редактирования: {{ comment_user.upd_date }}</p>
+        <a href="{% url 'HW23:comment-upd' pk=comment_user.pk %}">Обновить комментарий</a>
+        <a href="{% url 'HW23:comment-del' pk=comment_user.pk %}">Удалить комментарий</a>
     {% endif %}
 {% endif %}
 </div>
 <div>
-{% for comment in comments %}    
+{% for comment in comments_other %}    
     <p>Автор: {{ comment.author }}</p>
     <p>Заголовок: {{ comment.title }}</p>
     <p>Комментарий: {{ comment.content }}</p>

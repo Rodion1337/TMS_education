@@ -10,6 +10,6 @@ urlpatterns = [
     path('category/', views.category_views, name = 'categories'),
     path('category/<str:category>', views.category_views, name = 'categories'),
     path('game/<slug:game_slug>/comment', views.CommentCreateView.as_view(), name='comment-add'),
-    path('game/<int:comment_id>/comment_upd', views.CommentUpdateView.as_view(), name='comment-upd'),
-    path('game/<int:comment_id>/comment_del', views.CommentDeleteView.as_view(), name='comment-del'),
+    path('comment/<int:pk>/update/', views.CommentUpdateView.as_view(), name='comment-upd',),
+    path('comment/<int:pk>/delete/', views.CommentDeleteView.as_view(), name='comment-del',),
 ]
