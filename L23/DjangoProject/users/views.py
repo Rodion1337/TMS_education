@@ -4,8 +4,12 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import logout
-from django.urls import reverse
-
+from django.urls import reverse, reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.views import PasswordChangeView
+from requests import request
+import bootstrap4
 # Create your views here.
 
 from django.forms import *
@@ -34,8 +38,10 @@ def register(request):
 def login_view(request):
     if request.method == 'POST':                                    #проверка типа обращения
         form = LoginForm(request.POST)                              #получение данных
-        next_url = request.POST.get('next')
-        print(next_url)
+        next_url = request.POST.get('next') 
+        if next_url == '': 
+            next_url='/'
+        # print(next_url)
         if form.is_valid():
             cd = form.cleaned_data
             user = authenticate(username=cd['username'], password=cd['password'])
@@ -55,3 +61,9 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('HW23:index')
+
+class UserChangePassword(PasswordChangeView):
+    template_name = 'users/change_password.html'
+    # print(request)
+    success_url = reverse_lazy('HW23:games')
+    success_message = 'Смена пароля прошла успешно'

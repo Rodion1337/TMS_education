@@ -31,7 +31,7 @@
         #navbar li a {
           display: block;
           padding: 6px;
-          width: 100px;
+          width: 150px;
           color: #fff;
           text-decoration: none;
           text-align: center;
@@ -51,11 +51,17 @@
             <li><a href="/category/action"> action </a></li>
           </ul>
         {% if user.is_authenticated %}
-          <li>{{ user.get_username }}</li>
-          <li><a href="{% url 'users:logout' %}?next={{request.path}}">Выход</a>
+        <li><a>User: {{ user.get_username }}</a>
+          <ul>
+            <li><a href="{% url 'users:logout' %}?next={{request.path}}">Выход</a></li>
+            <li><a href="{% url 'users:UserChangePassword' %}">Смена пароля</a></li>
+          </ul>
         {% else %}
-          <li><a href="{% url 'users:register' %}?next={{request.path}}">Регистрация</a>
-          <li><a href="{% url 'users:login' %}?next={{request.path}}">Авторизация</a>
+        <li> <a>Вы не авторизованы</a>
+          <ul>
+            <li><a href="{% url 'users:register' %}?next={{request.path}}">Регистрация</a>
+            <li><a href="{% url 'users:login' %}">Авторизация</a>
+          </ul>
         {% endif %}
         </li>
       </ul>

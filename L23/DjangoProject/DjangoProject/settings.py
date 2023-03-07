@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'HW23.apps.Hw23Config',
     'users.apps.UsersConfig',
     'captcha',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
