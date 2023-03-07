@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.postgres',
     'HW23.apps.Hw23Config',
+    'users.apps.UsersConfig',
+    'captcha',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
