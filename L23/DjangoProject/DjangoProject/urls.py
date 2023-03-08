@@ -24,5 +24,6 @@ urlpatterns = [
     path('', include('HW23.urls')),
     path('accounts/', include('users.urls')),
     path('captcha/', include('captcha.urls')),
+    path('accounts/', include('allauth.urls')),
     
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

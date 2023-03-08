@@ -60,7 +60,9 @@
         <li> <a>Вы не авторизованы</a>
           <ul>
             <li><a href="{% url 'users:register' %}?next={{request.path}}">Регистрация</a>
-            <li><a href="{% url 'users:login' %}">Авторизация</a>
+            <li><a href="{% url 'users:login' %}">Авторизация через сайт</a>
+            <li><a href="{% url 'github_login' %}">Авторизация через Github.com</a>
+            <li><a href="{% url 'vk_login' %}">Авторизация через VK.com</a>
           </ul>
         {% endif %}
         </li>
