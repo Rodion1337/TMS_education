@@ -50,11 +50,15 @@ INSTALLED_APPS = [
     'allauth.socialaccount',	
 	'allauth.socialaccount.providers.github',
     'allauth.socialaccount.providers.vk',
+    'rest_framework',
+    'corsheaders',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -155,6 +159,15 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+#настройки для allauth social account
 SITE_ID = 1
 ACCOUNT_EMAIL_VERIFICATION = "none"
-LOGIN_REDIRECT_URL = 'HW23:index' 
+LOGIN_REDIRECT_URL = 'HW23:index'
+
+#настройки для cors headers
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = [
+    'http://127.0.0.1:8000',
+    'https://127.0.0.1:8000',
+]
+CORS_URLS_REGEX = r'^/api/.*$'
