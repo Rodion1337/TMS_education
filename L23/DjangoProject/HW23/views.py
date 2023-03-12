@@ -56,7 +56,7 @@ def game_detail(request, game_slug):
     #     comment_user = {'pk': 0,}
     # comments_other = Comments.objects.order_by('create_date').filter(game_id = game_odj.id, is_active = True).exclude(author_id = user_id)
     comment_all = Comments.objects.order_by('create_date').filter(game_id = game_odj.id, is_active = True)
-    comment_user = comment_all.filter(author_id = user_id)[0]
+    comment_user = comment_all.filter(author_id = user_id)
     comments_other = comment_all.exclude(author_id = user_id)
 
     context = {'game': game_odj, 'comments_other': comments_other, 'comment_user': comment_user,}

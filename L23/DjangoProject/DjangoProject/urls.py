@@ -19,11 +19,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('HW23.urls')),
     path('accounts/', include('users.urls')),
     path('captcha/', include('captcha.urls')),
     path('accounts/', include('allauth.urls')),
-    
+    path('api/', include('api.urls')),
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -27,14 +27,16 @@
     {% if not comment_user %}
         <a href="{{request.path}}/comment">Добавить комментарий</a>
     {% else %}
-        <p>Автор: {{ comment_user.author }}</p>
-        <p>Заголовок: {{ comment_user.title }}</p>
-        <p>Комментарий: {{ comment_user.content }}</p>
-        <p>Оценка: {{ comment_user.rating }}</p>
-        <p>Дата создания: {{ comment_user.create_date }}</p>
-        <p>Дата редактирования: {{ comment_user.upd_date }}</p>
-        <a href="{% url 'HW23:comment-upd' pk=comment_user.pk %}">Обновить комментарий</a>
-        <a href="{% url 'HW23:comment-del' pk=comment_user.pk %}">Удалить комментарий</a>
+        {% for comment in comment_user %}
+            <p>Автор: {{ comment.author }}</p>
+            <p>Заголовок: {{ comment.title }}</p>
+            <p>Комментарий: {{ comment.content }}</p>
+            <p>Оценка: {{ comment.rating }}</p>
+            <p>Дата создания: {{ comment.create_date }}</p>
+            <p>Дата редактирования: {{ comment.upd_date }}</p>
+            <a href="{% url 'HW23:comment-upd' pk=comment.pk %}">Обновить комментарий</a>
+            <a href="{% url 'HW23:comment-del' pk=comment.pk %}">Удалить комментарий</a>
+        {% endfor %}
     {% endif %}
 {% endif %}
 </div>
