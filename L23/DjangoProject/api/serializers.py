@@ -5,7 +5,7 @@ from HW23.models import Games, Comments, Categories
 class GameSerializer(ModelSerializer):
     class Meta:
         model = Games
-        fields = ('id', 'name', 'slug', 'description', 'rating_avg',)
+        fields = ('id', 'name', 'price', 'slug', 'description', 'rating_avg',)
 
 
 class CommentsSerializer(ModelSerializer):

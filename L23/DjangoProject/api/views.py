@@ -24,13 +24,23 @@ def api_games(request):
 
 class GetGameInfoView(APIView):
     def get(self, request):
-        queryset = Games.objects.all()
-        if request.GET.get('random', False):
+        request_result = request.GET
+        
+        sorted_order = {
+            'None': Games.objects.all(),
+            'price': Games.objects.order_by('price'),
+            'name': Games.objects.order_by('name'),
+        }
+        sorted_game = request_result.get('sort', 'None')
+        
+        queryset = sorted_order.get(sorted_game)
+        if request_result.get('random', False) == 'true':
             queryset = queryset[randint(0, len(queryset))]
             serializer_for_queryset = GameSerializer(instance=queryset)
         else:
             queryset = queryset[0:5] #игр лишь 7, поэтому вывод 5 штук :)
             serializer_for_queryset = GameSerializer(instance=queryset, many=True)
+        
         return Response({"games": serializer_for_queryset.data})
 
 

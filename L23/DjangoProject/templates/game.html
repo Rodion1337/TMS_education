@@ -23,6 +23,10 @@
     <hr>
 </div>
 <div>
+{% if last_visited %}
+    <p>Вы просматривали страницу : {{last_visited}}</p>
+{% endif %}
+
 {% if user.is_authenticated %}
     {% if not comment_user %}
         <a href="{{request.path}}/comment">Добавить комментарий</a>
@@ -34,6 +38,7 @@
             <p>Оценка: {{ comment.rating }}</p>
             <p>Дата создания: {{ comment.create_date }}</p>
             <p>Дата редактирования: {{ comment.upd_date }}</p>
+            
             <a href="{% url 'HW23:comment-upd' pk=comment.pk %}">Обновить комментарий</a>
             <a href="{% url 'HW23:comment-del' pk=comment.pk %}">Удалить комментарий</a>
         {% endfor %}

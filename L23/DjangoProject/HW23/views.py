@@ -7,6 +7,7 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth.decorators import login_required
 from requests import request
+from datetime import datetime, timedelta
 
 # Create your views here.
 
@@ -50,6 +51,7 @@ def category_views(request, category = None):
 def game_detail(request, game_slug):
     game_odj = get_object_or_404(Games, slug = game_slug)
     user_id = request.user.id
+    last_visited = request.COOKIES.get(game_slug)
     # if len(Comments.objects.filter(game_id = game_odj.id, author_id = user_id)) == 1:
     #     comment_user = Comments.objects.filter(game_id = game_odj.id, author_id = user_id)[0]
     # else:
@@ -58,9 +60,12 @@ def game_detail(request, game_slug):
     comment_all = Comments.objects.order_by('create_date').filter(game_id = game_odj.id, is_active = True)
     comment_user = comment_all.filter(author_id = user_id)
     comments_other = comment_all.exclude(author_id = user_id)
-
-    context = {'game': game_odj, 'comments_other': comments_other, 'comment_user': comment_user,}
-    return render(request, 'game.html', context)
+    last_visited = request.COOKIES.get(game_slug)
+    context = {'game': game_odj, 'comments_other': comments_other, 'comment_user': comment_user,'last_visited':last_visited}
+    response = render(request, 'game.html', context)
+    visit_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    response.set_cookie(game_slug, visit_time, max_age=timedelta(days=20))
+    return response
 
 class CommentCreateView(CreateView):
     model = Comments
