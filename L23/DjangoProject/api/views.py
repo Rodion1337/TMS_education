@@ -8,6 +8,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from random import randint
 # from rest_framework.serializers import Serializer
 
 # Create your views here.
@@ -25,8 +26,11 @@ class GetGameInfoView(APIView):
     def get(self, request):
         queryset = Games.objects.all()
         if request.GET.get('random', False):
-            queryset = queryset[0:4] 
-        serializer_for_queryset = GameSerializer(instance=queryset, many=True)
+            queryset = queryset[randint(0, len(queryset))]
+            serializer_for_queryset = GameSerializer(instance=queryset)
+        else:
+            queryset = queryset[0:5] #игр лишь 7, поэтому вывод 5 штук :)
+            serializer_for_queryset = GameSerializer(instance=queryset, many=True)
         return Response({"games": serializer_for_queryset.data})
 
 
