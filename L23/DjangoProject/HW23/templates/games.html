@@ -2,6 +2,13 @@
 {% load static %}
 <hr>
 {% block content %}
+{% block sort %}
+<div style="float:right">
+    <p class="block-text">sort by:</p>
+    <a class="block-link" href="?sort=name">Name</a>
+    <a class="block-link" href="?sort=price">Price</a>
+</div>
+{% endblock %}
 <div>
     {% for game in games %}
     <p>{{ game.name }}</p>

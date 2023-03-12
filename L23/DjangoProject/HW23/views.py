@@ -24,12 +24,20 @@ def game_views(request, game_slug = None):
         return render(request, 'games.html', context={'games' : games_view,})
 
 def category_views(request, category = None):
+    
+    sorted_game = request.GET.get('sort', 'None')
+    sorted_order = {
+        'None': Games.objects.all(),
+        'price': Games.objects.order_by('price'),
+        'name': Games.objects.order_by('name'),
+    }
+
     if category != None:
-        category = Categories.objects.get(title = category)   
-        games_view = Games.objects.filter(category = category.id)
+        games_view = Games.objects.filter(category = Categories.objects.get(title = category).id)
         return render(request, 'games.html', context={'games' : games_view,})
     else:
         games_view = Games.objects.all()
         return render(request, 'games.html', context={'games' : games_view,})
+
 
 
