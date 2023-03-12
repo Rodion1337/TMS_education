@@ -10,8 +10,7 @@
 </div>
 {% endblock %}
 <div>
-    {% for game in games %}
-    <p><a href=/game/{{game.slug}}> {{ game.name }}</a></p>
+    <p>{{ game.name }}</p>
     <p>Price: {{game.price}} Dollars </p>
     <img src=/{{game.game_image}} alt="{{game.name}}" width="450">
     <p>Category: <a href=/category/{{game.category}}> {{game.category}} </a></p>
@@ -21,6 +20,5 @@
     <p>Дата последнего обновления информации: {{game.upd_date}}</p>
     <p>Описание: {{game.description}}</p>
     <hr>
-    {% endfor %}
 </div>
 {% endblock %}

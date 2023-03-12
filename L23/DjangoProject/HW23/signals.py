@@ -1,8 +1,7 @@
-from .models import Games, Categories, Comments
+from .models import Games, Categories
 from django.dispatch import receiver
-from django.db.models.signals import post_delete, post_save, pre_delete, pre_save
+from django.db.models.signals import post_save, pre_delete, pre_save
 from string import punctuation, ascii_letters, digits
-from django.db.models import Avg
 
 @receiver(post_save, sender = Games)
 def game_amount_up(sender, instance, created, **kwargs):
@@ -41,15 +40,5 @@ def upd_slug(sender, instance, **kwargs):
                 pass
             else:
                 name_slug += str(dic[i])
+        print(len(name_slug))
         instance.slug = name_slug
-
-@receiver(post_delete, sender = Comments)
-@receiver(post_save, sender = Comments)
-def upd_slug(sender, instance, **kwargs):
-    game = Games.objects.get(name = instance.game)
-    comments = Comments.objects.filter(game = game)
-    if comments.count() != 0:
-        game.rating_avg = round(comments.aggregate(Avg("rating"))['rating__avg'],1)
-    else:
-        game.rating_avg = 0
-    game.save()
