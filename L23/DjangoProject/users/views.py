@@ -10,14 +10,9 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.views import PasswordChangeView
 from requests import request
 import bootstrap4
+from .forms_users import LoginForm
+
 # Create your views here.
-
-from django.forms import *
-
-
-class LoginForm(Form):                                              #создание заполняемых полей при регистрации
-    username = CharField()
-    password = CharField(widget=PasswordInput)
 
 
 def register(request):
@@ -25,6 +20,7 @@ def register(request):
         form = UserCreationForm(request.POST)                       #получение данных
         # next_url = request.POST.get('next') if request.POST.get('next') != '' else 'index/'
         next_url = request.POST.get('next', '/index') #элегантная альтернатива моему "топорному" варианту
+        # next_url = request.POST.get('next') or reverse('HW23:index') (3й вариант)
         if form.is_valid():                                         #проверка валидности
             form.save()
             username = form.cleaned_data.get('username')
@@ -39,14 +35,12 @@ def register(request):
 def login_view(request):
     if request.method == 'POST':                                    #проверка типа обращения
         form = LoginForm(request.POST)                              #получение данных
-        next_url = request.POST.get('next') 
-        if next_url == '': 
-            next_url='/'
+        next_url = request.POST.get('next', '/index')
         # print(next_url)
         if form.is_valid():
             cd = form.cleaned_data
             user = authenticate(username=cd['username'], password=cd['password'])
-            if user is not None:
+            if user:
                 if user.is_active:
                     login(request, user)
                     return HttpResponseRedirect(next_url)
