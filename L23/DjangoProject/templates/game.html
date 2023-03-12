@@ -24,7 +24,7 @@
 </div>
 <div>
 {% if user.is_authenticated %}
-    {% if comment_user.pk == 0 %}
+    {% if not comment_user %}
         <a href="{{request.path}}/comment">Добавить комментарий</a>
     {% else %}
         <p>Автор: {{ comment_user.author }}</p>
@@ -38,14 +38,14 @@
     {% endif %}
 {% endif %}
 </div>
-<div>
-{% for comment in comments_other %}    
+{% for comment in comments_other %}
+    <div>
     <p>Автор: {{ comment.author }}</p>
     <p>Заголовок: {{ comment.title }}</p>
     <p>Комментарий: {{ comment.content }}</p>
     <p>Оценка: {{ comment.rating }}</p>
     <p>Дата создания: {{ comment.create_date }}</p>
     <p>Дата редактирования: {{ comment.upd_date }}</p>
+    </div>
 {% endfor %}
-</div>
 {% endblock %}

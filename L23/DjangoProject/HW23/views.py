@@ -50,11 +50,15 @@ def category_views(request, category = None):
 def game_detail(request, game_slug):
     game_odj = get_object_or_404(Games, slug = game_slug)
     user_id = request.user.id
-    if len(Comments.objects.filter(game_id = game_odj.id, author_id = user_id)) == 1:
-        comment_user = Comments.objects.filter(game_id = game_odj.id, author_id = user_id)[0]
-    else:
-        comment_user = {'pk': 0,}
-    comments_other = Comments.objects.order_by('create_date').filter(game_id = game_odj.id, is_active = True).exclude(author_id = user_id)
+    # if len(Comments.objects.filter(game_id = game_odj.id, author_id = user_id)) == 1:
+    #     comment_user = Comments.objects.filter(game_id = game_odj.id, author_id = user_id)[0]
+    # else:
+    #     comment_user = {'pk': 0,}
+    # comments_other = Comments.objects.order_by('create_date').filter(game_id = game_odj.id, is_active = True).exclude(author_id = user_id)
+    comment_all = Comments.objects.order_by('create_date').filter(game_id = game_odj.id, is_active = True)
+    comment_user = comment_all.filter(author_id = user_id)[0]
+    comments_other = comment_all.exclude(author_id = user_id)
+
     context = {'game': game_odj, 'comments_other': comments_other, 'comment_user': comment_user,}
     return render(request, 'game.html', context)
 
