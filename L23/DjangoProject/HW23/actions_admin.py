@@ -20,12 +20,12 @@ def not_available(self, request, queryset):
     self.message_user(request, 'Действие выполнено')
 
 
-@admin.action(description = 'выгрузка в формате .csv')
+@admin.action(description = 'выгрузка данных в формате .csv')
 def export_as_csv(self, request, queryset):
     import csv
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename={}.csv;'.format(datetime.datetime.now())
-    response.write
+    response.write(u'\ufeff'.encode('utf8')) #обязательный элемент для корректной выгрузки в utf8
     writer = csv.writer(response)
     writer.writerow(['name', 'slug', 'pub_date', 'release_date', 'price', 'category', 'gameDev', 'status', 'description'])
     for i in queryset:

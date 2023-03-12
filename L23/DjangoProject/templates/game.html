@@ -1,0 +1,51 @@
+{% extends "base.html"%}
+{% load static %}
+<hr>
+{% block content %}
+{% block sort %}
+<div style="float:right">
+    <p class="block-text">sort by:</p>
+    <a class="block-link" href="?sort=name">Name</a>
+    <a class="block-link" href="?sort=price">Price</a>
+</div>
+{% endblock %}
+<div>
+    <p>{{ game.name }}</p>
+    <p>Price: {{game.price}} Dollars </p>
+    <img src=/{{game.game_image}} alt="{{game.name}}" width="450">
+    <p>Category: <a href=/category/{{game.category}}> {{game.category}} </a></p>
+    <p>Разработчик: {{game.gameDev}}</p>
+    <p>Статус: {{game.status}}</p>
+    <p>Дата релиза: {{game.release_date}}</p>
+    <p>Дата последнего обновления информации: {{game.upd_date}}</p>
+    <p>Описание: {{game.description}}</p>
+    <p>Средняя оценка пользователей: {{ game.rating_avg }}</p>
+    <hr>
+</div>
+<div>
+{% if user.is_authenticated %}
+    {% if comment_user.pk == 0 %}
+        <a href="{{request.path}}/comment">Добавить комментарий</a>
+    {% else %}
+        <p>Автор: {{ comment_user.author }}</p>
+        <p>Заголовок: {{ comment_user.title }}</p>
+        <p>Комментарий: {{ comment_user.content }}</p>
+        <p>Оценка: {{ comment_user.rating }}</p>
+        <p>Дата создания: {{ comment_user.create_date }}</p>
+        <p>Дата редактирования: {{ comment_user.upd_date }}</p>
+        <a href="{% url 'HW23:comment-upd' pk=comment_user.pk %}">Обновить комментарий</a>
+        <a href="{% url 'HW23:comment-del' pk=comment_user.pk %}">Удалить комментарий</a>
+    {% endif %}
+{% endif %}
+</div>
+<div>
+{% for comment in comments_other %}    
+    <p>Автор: {{ comment.author }}</p>
+    <p>Заголовок: {{ comment.title }}</p>
+    <p>Комментарий: {{ comment.content }}</p>
+    <p>Оценка: {{ comment.rating }}</p>
+    <p>Дата создания: {{ comment.create_date }}</p>
+    <p>Дата редактирования: {{ comment.upd_date }}</p>
+{% endfor %}
+</div>
+{% endblock %}

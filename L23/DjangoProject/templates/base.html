@@ -41,9 +41,8 @@
         #navbar ul li:hover { background-color: #666; }
       </style>
     </head>
-   
     <body>
-    
+      <input type="hidden" name="next" {% if equest.path != '' %} value="{{ request.GET.next }}" {% else %} value="index/" {% endif %}/>
       <ul id="navbar">
         <li><a href="/">Главная</a></li>
         <li><a href="/category/">Категории</a>
@@ -51,6 +50,13 @@
             <li><a href="/category/RPG"> RPG </a></li>
             <li><a href="/category/action"> action </a></li>
           </ul>
+        {% if user.is_authenticated %}
+          <li>{{ user.get_username }}</li>
+          <li><a href="{% url 'users:logout' %}?next={{request.path}}">Выход</a>
+        {% else %}
+          <li><a href="{% url 'users:register' %}?next={{request.path}}">Регистрация</a>
+          <li><a href="{% url 'users:login' %}?next={{request.path}}">Авторизация</a>
+        {% endif %}
         </li>
       </ul>
 </head>
