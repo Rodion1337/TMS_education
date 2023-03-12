@@ -5,20 +5,26 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import logout
 from django.urls import reverse
-from .forms_users import LoginForm
 
 # Create your views here.
+
+from django.forms import *
+
+
+class LoginForm(Form):                                              #создание заполняемых полей при регистрации
+    username = CharField()
+    password = CharField(widget=PasswordInput)
 
 
 def register(request):
     if request.method == 'POST':                                    #проверка типа обращения
         form = UserCreationForm(request.POST)                       #получение данных
-        # next_url = request.POST.get('next') if request.POST.get('next') != '' else 'index/'
-        next_url = request.POST.get('next') or reverse('HW23:index')
+        next_url = request.POST.get('next') if request.POST.get('next') != '' else 'index/'
         if form.is_valid():                                         #проверка валидности
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Создан аккаунт {username}!')
+            print(next_url)
             return HttpResponseRedirect(next_url)
     else:
         form = UserCreationForm()
@@ -28,11 +34,12 @@ def register(request):
 def login_view(request):
     if request.method == 'POST':                                    #проверка типа обращения
         form = LoginForm(request.POST)                              #получение данных
-        next_url = request.POST.get('next') or reverse('HW23:index')
+        next_url = request.POST.get('next')
+        print(next_url)
         if form.is_valid():
             cd = form.cleaned_data
             user = authenticate(username=cd['username'], password=cd['password'])
-            if user:
+            if user is not None:
                 if user.is_active:
                     login(request, user)
                     return HttpResponseRedirect(next_url)
