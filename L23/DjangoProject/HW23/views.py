@@ -51,9 +51,13 @@ def category_views(request, category = None):
 def game_detail(request, game_slug):
     game_odj = get_object_or_404(Games, slug = game_slug)
     user_id = request.user.id
-    last_visited = request.COOKIES.get(game_slug+'last_visited')
-    amount_visited = int(request.COOKIES.get(game_slug+'amount_visited')) if game_slug+'amount_visited' in request.COOKIES else 1
-    print(type(last_visited))
+    if request.COOKIES.get(game_slug):
+        cookie = eval(request.COOKIES.get(game_slug))
+        last_visited = cookie['last_visited']
+        amount_visited = cookie['amount_visited']
+    else:
+        last_visited = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        amount_visited = 1
     # if len(Comments.objects.filter(game_id = game_odj.id, author_id = user_id)) == 1:
     #     comment_user = Comments.objects.filter(game_id = game_odj.id, author_id = user_id)[0]
     # else:
@@ -66,8 +70,7 @@ def game_detail(request, game_slug):
     response = render(request, 'game.html', context)
     visit_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     amount_visited += 1
-    response.set_cookie(game_slug+'last_visited', visit_time, max_age=timedelta(days=20))
-    response.set_cookie(game_slug+'amount_visited', amount_visited, max_age=timedelta(days=20))
+    response.set_cookie(game_slug, value={'last_visited':visit_time, 'amount_visited':amount_visited}, max_age=timedelta(days=20))
     return response
 
 class CommentCreateView(CreateView):
