@@ -13,7 +13,7 @@
     {% for game in games %}
     <p><a href=/game/{{game.slug}}> {{ game.name }}</a></p>
     <p>Price: {{game.price}} Dollars </p>
-    <img src=/{{game.game_image}} alt="{{game.name}}" width="450">
+    <img src=/media/{{game.game_image}} alt="{{game.name}}" width="450">
     <p>Category: <a href=/category/{{game.category}}> {{game.category}} </a></p>
     <p>Разработчик: {{game.gameDev}}</p>
     <p>Статус: {{game.status}}</p>
