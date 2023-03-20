@@ -22,13 +22,16 @@ def index(request: HttpRequest):
     categories_sorted = list(Categories.objects.all())
     return render(request, 'index.html', context={'games': games_sorted, "categories": categories_sorted})
 
-def game_views(request, game_slug = None):
-    if game_slug != None:
-        game_view = Games.objects.get(slug = game_slug)
-        return render(request, 'game.html', context={'game': game_view,})
-    else:
-        games_view = Games.objects.all()
-        return render(request, 'games.html', context={'games' : games_view,})
+
+def game_views(request):
+    sorted_game = request.GET.get('sort', 'None')
+    sorted_order = {
+        'None': Games.objects.all(),
+        'price': Games.objects.order_by('price'),
+        'name': Games.objects.order_by('name'),
+    }
+    games_view = sorted_order.get(sorted_game)
+    return render(request, 'games.html', context={'games' : games_view,})
 
 def category_views(request, category = None):
     

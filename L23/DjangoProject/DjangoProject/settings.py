@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
     'rest_framework',
     'corsheaders',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -64,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'DjangoProject.urls'
@@ -83,7 +85,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 
             ],
-        'debug': True
+        'debug': False
         },
     },
 ]
@@ -172,3 +174,37 @@ CORS_ORIGIN_WHITELIST = [
     'https://127.0.0.1:8000',
 ]
 CORS_URLS_REGEX = r'^/api/.*$'
+
+CACHES = {
+    'default':{
+        'BACKEND' : 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION' : 'cache',
+        'TIMEOUT' : 300,
+    },
+    'caches_mem':{
+        'BACKEND' : 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION' : 'cache',
+        'TIMEOUT' : 300,
+        # 'KEY_PREFIX' : 'mem',
+    },
+    'caches_files' : {
+        'BACKEND' :'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION' : BASE_DIR / 'django_cache',
+        'TIMEOUT' : 300,
+        'OPTIONS':{
+            'MAX_ENTRIES' : 15,
+            'CULL_FREQUENCY' : 2,
+        }
+        # 'KEY_PREFIX' : 'files',
+    },
+    
+}
+
+
+#Tool Bar
+
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]
