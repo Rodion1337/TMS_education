@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'debug_toolbar',
     'drf_yasg',
+    'coreapi',
 ]
 
 MIDDLEWARE = [
