@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'debug_toolbar',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -208,3 +209,9 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
+
+#Swagger setting
+
+REST_FRAMEWORK = {
+	'DEFAULT_SCHEMA_CLASS':'rest_framework.schemas.coreapi.AutoSchema'
+}

@@ -11,7 +11,7 @@ class GameSerializer(ModelSerializer):
 class CommentsSerializer(ModelSerializer):
     class Meta:
         model = Comments
-        fields = ('game.name', 'author', 'title', 'content', 'rating',)
+        fields = ('game', 'author', 'title', 'content', 'rating',)
 
 
 class CategoriesSerializer(ModelSerializer):
