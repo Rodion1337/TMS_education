@@ -62,8 +62,10 @@ class GetGameInfoView(APIView):
 class GetCommentInfoView(APIView):
     def get(self, request):
         if request.method == 'GET':
-            comment = Comments.objects.all()
-            comment_serializer = CommentsSerializer(instance=comment, many=True)
+            request_result = request.GET
+            game_id = request_result.get('game') if request_result.get('game') else 0
+            queryset = Comments.objects.filter(game=int(game_id)) if Comments.objects.filter(game=int(game_id)) else Comments.objects.all()
+            comment_serializer = CommentsSerializer(instance=queryset, many=True)
             # return JsonResponse (comment_serializer.data, safe=False)
             return Response({"comments": comment_serializer.data})
 
