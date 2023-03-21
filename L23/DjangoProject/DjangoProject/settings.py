@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'drf_yasg',
     'coreapi',
+    'celery',
 ]
 
 MIDDLEWARE = [
@@ -216,3 +217,8 @@ INTERNAL_IPS = [
 REST_FRAMEWORK = {
 	'DEFAULT_SCHEMA_CLASS':'rest_framework.schemas.coreapi.AutoSchema'
 }
+
+#Celery
+
+CELERY_BROKER_URL = "redis://localhost:6379"
+CELERY_RESULT_BACKEND = "redis://localhost:6379"
