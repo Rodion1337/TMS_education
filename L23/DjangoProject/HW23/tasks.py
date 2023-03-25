@@ -1,9 +1,8 @@
-from better_profanity import profanity
 import time
 from django.core import serializers
 from celery import shared_task
 
-profanity.load_censor_words()
+
 
 @shared_task()
 def replace_text_with_censored(instance):

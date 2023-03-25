@@ -10,6 +10,7 @@ from rest_framework.parsers import JSONParser
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from random import randint
+from drf_yasg.utils import swagger_auto_schema
 # from rest_framework.serializers import Serializer
 
 # Create your views here.
@@ -43,10 +44,10 @@ class GetGameInfoView(APIView):
             'price': Games.objects.order_by('price'),
             'name': Games.objects.order_by('name'),
         }
-        sorted_game = request_result.get('sort', 'None')
-        year = request_result.get('year')
-        pages = request_result.get('page', 1)
-        amount = request_result.get('amount', 5)
+        sorted_game = request.GET.get('sort', 'None')
+        year = request.GET.get('year')
+        pages = request.GET.get('page', 1)
+        amount = request.GET.get('amount', 5)
         queryset = sorted_order.get(sorted_game)
         if year:
             queryset = queryset.filter(release_date__year=int(year)) 
@@ -60,6 +61,11 @@ class GetGameInfoView(APIView):
         return Response({"games": serializer_for_queryset.data})
 
 class GetCommentInfoView(APIView):
+    @swagger_auto_schema(
+        operation_id='Display end of opblock',
+        operation_summary="Display outside",
+        operation_description='Display inside',
+    )
     def get(self, request):
         if request.method == 'GET':
             request_result = request.GET
