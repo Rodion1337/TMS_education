@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from requests import request
 from datetime import datetime, timedelta
 from json import dumps, loads
+from rest_framework import serializers
 
 # Create your views here.
 
@@ -62,11 +63,6 @@ def game_detail(request, game_slug):
     else:
         last_visited = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         amount_visited = 1
-    # if len(Comments.objects.filter(game_id = game_odj.id, author_id = user_id)) == 1:
-    #     comment_user = Comments.objects.filter(game_id = game_odj.id, author_id = user_id)[0]
-    # else:
-    #     comment_user = {'pk': 0,}
-    # comments_other = Comments.objects.order_by('create_date').filter(game_id = game_odj.id, is_active = True).exclude(author_id = user_id)
     comment_all = Comments.objects.order_by('create_date').filter(game_id = game_odj.id, is_active = True)
     comment_user = comment_all.filter(author_id = user_id)
     comments_other = comment_all.exclude(author_id = user_id)
@@ -83,9 +79,13 @@ class CommentCreateView(CreateView):
     form_class = UserCommentForm
     # success_url = reverse_lazy('HW23:games')
     
+    
     def form_valid(self, form):
+        from .tasks import censored_comment_form
         form.instance.game = Games.objects.get(slug=self.kwargs['game_slug'])
         form.instance.author = self.request.user
+        self.object = form.save()
+        censored_comment_form.delay(serializers.serialize('json', [self.object]))
         return super().form_valid(form)
 
 class CommentUpdateView(UpdateView):

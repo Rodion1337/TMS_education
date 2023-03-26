@@ -56,7 +56,6 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'drf_yasg',
     'coreapi',
-    'celery',
 ]
 
 MIDDLEWARE = [
