@@ -2,17 +2,17 @@ from .models import Games, Categories, Comments
 from django.dispatch import receiver
 from django.db.models.signals import post_delete, post_save, pre_delete, pre_save
 import time
-from django.core import serializers
+from django.core.serializers import deserialize
 from celery import shared_task
 from better_profanity import profanity
+import time
 
-
+profanity.load_censor_words()
 
 @shared_task()
 def censored_comment_form(instance):
-    from better_profanity import profanity
-    import time
+    instance_deserialize = list(deserialize('json', instance))[0].object
     time.sleep(10)
-    instance.title=profanity.censor(instance.title)
-    instance.content=profanity.censor(instance.content)
-    instance.save()
+    instance_deserialize.title=profanity.censor(instance_deserialize.title)
+    instance_deserialize.content=profanity.censor(instance_deserialize.content)
+    instance_deserialize.save()

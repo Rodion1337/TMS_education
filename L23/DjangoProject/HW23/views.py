@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from requests import request
 from datetime import datetime, timedelta
 from json import dumps, loads
-from rest_framework import serializers
+from django.core.serializers import serialize
 
 # Create your views here.
 
@@ -85,7 +85,9 @@ class CommentCreateView(CreateView):
         form.instance.game = Games.objects.get(slug=self.kwargs['game_slug'])
         form.instance.author = self.request.user
         self.object = form.save()
-        censored_comment_form.delay(serializers.serialize('json', [self.object]))
+        serialize_odj = serialize('json', [self.object])
+        # print('serialize_odj', serialize_odj)
+        censored_comment_form.delay(serialize_odj)
         return super().form_valid(form)
 
 class CommentUpdateView(UpdateView):
