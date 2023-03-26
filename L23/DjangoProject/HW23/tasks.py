@@ -1,6 +1,7 @@
 import time
 from django.core import serializers
 from celery import shared_task
+from better_profanity import profanity
 
 
 

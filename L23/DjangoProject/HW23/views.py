@@ -8,6 +8,7 @@ from django.urls import reverse_lazy, reverse
 from django.contrib.auth.decorators import login_required
 from requests import request
 from datetime import datetime, timedelta
+from json import dumps, loads
 
 # Create your views here.
 
@@ -55,7 +56,7 @@ def game_detail(request, game_slug):
     game_odj = get_object_or_404(Games, slug = game_slug)
     user_id = request.user.id
     if request.COOKIES.get(game_slug):
-        cookie = eval(request.COOKIES.get(game_slug))
+        cookie = loads(request.COOKIES.get(game_slug))
         last_visited = cookie['last_visited']
         amount_visited = cookie['amount_visited']
     else:
@@ -73,7 +74,7 @@ def game_detail(request, game_slug):
     response = render(request, 'game.html', context)
     visit_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     amount_visited += 1
-    response.set_cookie(game_slug, value={'last_visited':visit_time, 'amount_visited':amount_visited}, max_age=timedelta(days=20))
+    response.set_cookie(game_slug, value=dumps({'last_visited':visit_time, 'amount_visited':amount_visited}), max_age=timedelta(days=20))
     return response
 
 class CommentCreateView(CreateView):
