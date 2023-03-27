@@ -61,6 +61,7 @@ def game_detail(request, game_slug):
     logger_task.delay(str(f'{request.user} | {request.path}'))
     if request.COOKIES.get(game_slug):
         cookie = loads(request.COOKIES.get(game_slug))
+        cookie = loads(request.COOKIES.get(game_slug))
         last_visited = cookie['last_visited']
         amount_visited = cookie['amount_visited']
     else:
@@ -74,6 +75,7 @@ def game_detail(request, game_slug):
     visit_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     amount_visited += 1
     response.set_cookie(game_slug, value=dumps({'last_visited':visit_time, 'amount_visited':amount_visited}), max_age=timedelta(days=20))
+    response.set_cookie(game_slug, value=dumps({'last_visited':visit_time, 'amount_visited':amount_visited}), max_age=timedelta(days=20))
     return response
 
 class CommentCreateView(CreateView):
@@ -83,10 +85,16 @@ class CommentCreateView(CreateView):
     # success_url = reverse_lazy('HW23:games')
     
     
+    
     def form_valid(self, form):
+        from .tasks import censored_comment_form
         from .tasks import censored_comment_form
         form.instance.game = Games.objects.get(slug=self.kwargs['game_slug'])
         form.instance.author = self.request.user
+        self.object = form.save()
+        serialize_odj = serialize('json', [self.object])
+        # print('serialize_odj', serialize_odj)
+        censored_comment_form.delay(serialize_odj)
         self.object = form.save()
         serialize_odj = serialize('json', [self.object])
         # print('serialize_odj', serialize_odj)
