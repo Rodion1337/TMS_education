@@ -43,9 +43,9 @@ def upd_slug(sender, instance, **kwargs):
                 name_slug += str(dic[i])
         instance.slug = name_slug
 
-@receiver(post_delete, sender = Comments)
-@receiver(post_save, sender = Comments)
-def upd_slug(sender, instance, **kwargs):
+
+@receiver([post_save, post_delete], sender = Comments)
+def upd_rating__avg(sender, instance, **kwargs):
     game = Games.objects.get(name = instance.game)
     comments = Comments.objects.filter(game = game)
     if comments.count() != 0:
@@ -53,3 +53,9 @@ def upd_slug(sender, instance, **kwargs):
     else:
         game.rating_avg = 0
     game.save()
+
+# @receiver(post_save, sender = Comments)
+# def censored_comment(sender, instance, **kwargs):
+#     from better_profanity import profanity
+#     Comments.objects.filter(id = instance.id).update(title=profanity.censor(instance.title), 
+#                                                      content=profanity.censor(instance.content))

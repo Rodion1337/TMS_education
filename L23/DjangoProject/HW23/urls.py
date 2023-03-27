@@ -7,7 +7,7 @@ app_name = 'HW23'
 urlpatterns = [
     path('', views.index, name='index'),
     path('game/', cache_page(60, cache='caches_files')(views.game_views), name = 'games',),
-    path('game/<slug:game_slug>', cache_page(20, cache='caches_files')(views.game_detail), name = 'game_views',),
+    path('game/<slug:game_slug>', views.game_detail, name = 'game_views',),
     path('category/', cache_page(60*5, cache='caches_files')(views.category_views), name = 'categories',),
     path('category/<str:category>', cache_page(60*5, cache='caches_files')(views.category_views), name = 'categories',),
     path('game/<slug:game_slug>/comment', views.CommentCreateView.as_view(), name='comment-add'),
