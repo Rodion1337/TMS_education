@@ -24,7 +24,7 @@ def censored_comment_form(instance):
 def logger_task(msg):
     logger = logging.getLogger('HW34')
     logger.setLevel(logging.INFO)
-    # log_file = str([os.path.join(BASE_DIR, 'log.log')])
+    log_file = [os.path.join(BASE_DIR, 'log.log')]
     logger_handler = logging.FileHandler('log.log')
     logger_handler.setLevel(logging.INFO)
     logger_formatter = logging.Formatter('%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s')

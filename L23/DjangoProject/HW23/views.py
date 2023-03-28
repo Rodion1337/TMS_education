@@ -45,7 +45,7 @@ def category_views(request, category = None):
         'price': Games.objects.order_by('price'),
         'name': Games.objects.order_by('name'),
     }
-    logger_task.delay(f'{request.user} | {request.path} | ?sort={sorted_game} |')
+    logger_task.delay(str(f'{request.user} | {request.path} | ?sort={sorted_game} |')
     if category != None:
         games_view = sorted_order.get(sorted_game).filter(category = Categories.objects.get(title = category).id)
         
